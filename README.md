@@ -14,7 +14,7 @@ The goal of this app is to be as user friendly and simple as possible.
 - [ ] As a user, i want to be able to see a chart that display price data plotted on a line graph, such that i can gain an inside of the prices changes over time.
 - [ ] As a user, i want to be able to add a stock to my personal watchlist, such that i can gain a overview of my favorites stock to watch.
 - [ ] As a user, i want to be able to remove a stock from my personal watchlist, such that i can unfollow a stock that i am not interested in. 
-- [ ] As a user, i want to be able to have a Trending tickers page, such that i can gain an inside of which stocks are up-trending for the specific day. 
+- [ ] As a user, i want to be able to have a Trending tickers page, such that i can gain an inside of which stocks are up-trending or down-trending for the specific day. 
 - [ ] As a user, i want to be able to have a News page, such that i can collect important news about todays market. 
 - [ ] As a user, i want to be able to signup and login, such that i can login to my personal stock account.  
 
