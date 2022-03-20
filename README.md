@@ -29,4 +29,4 @@ The goal of this app is to be as user friendly and simple as possible.
 - [ ] As a user, i want to be able to have a settings page, such that i can personalize my account by my needs.
 
 - MyTradingApp
-![StockImg.png](StockImg.png)
+![app/StockImg.png](app/StockImg.png)
