@@ -28,5 +28,5 @@ The goal of this app is to be as user friendly and simple as possible.
 - [ ] As a user, i want to be able to share a stock to a friend my email. 
 - [ ] As a user, i want to be able to have a settings page, such that i can personalize my account by my needs.
 
-- MyTradingApp
+### MyTradingApp:
 ![app/StockImg.png](app/StockImg.png)
