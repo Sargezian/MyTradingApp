@@ -24,7 +24,7 @@ The goal of this app is to be as user friendly and simple as possible.
 - [ ] As a user, i want to be able to sell a stock, such that my bought stock will be removed from my portfolio. 
 - [ ] As a user, i want to be able to search and see a list of users, so that i can gain an inside of theirs portfolio.  
 
-### Lov:
+### Low:
 - [ ] As a user, i want to be able to share a stock to a friend my email. 
 - [ ] As a user, i want to be able to have a settings page, such that i can personalize my account by my needs.
 
