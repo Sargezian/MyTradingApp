@@ -25,7 +25,7 @@ The goal of this app is to be as user friendly and simple as possible.
 - [ ] As a user, i want to be able to search and see a list of users, so that i can gain an inside of theirs portfolio.  
 
 ### Low:
-- [ ] As a user, i want to be able to share a stock to a friend my email. 
+- [ ] As a user, i want to be able to share a stock to a friend by email. 
 - [ ] As a user, i want to be able to have a settings page, such that i can personalize my account by my needs.
 
 ### MyTradingApp:
