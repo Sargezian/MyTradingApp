@@ -2,6 +2,8 @@
 This is an application for keeping track of all your beloved stocks. 
 MyTradingApp provides a graphical way to display stock data, which includes price, news, trends and an personal watchlist and more.
 
+My motivation behind the creation of this app, is that i have got tired of stock apps that are to complex. 
+
 The goal of this app is to be as user friendly and simple as possible. 
 
 # Prioritized requirements
