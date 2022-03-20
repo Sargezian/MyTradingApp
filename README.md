@@ -21,9 +21,7 @@ The goal of this app is to be as user friendly and simple as possible.
 - [ ] As a user, i want to be able to signup, login and signout, such that i can login to my personal stock account.  
 
 ### Medium:
-- [ ] As a user, i want to be able to see a portfolio page with stats of gain/drop in percentage, such that I can gain a inside of my stock performance. 
-- [ ] As a user, i want to be able to buy a stock with some fictional money, such that i can add my bought stock to my portfolio page. 
-- [ ] As a user, i want to be able to sell a stock, such that my bought stock will be removed from my portfolio. 
+- [ ] As a user, i want to be able to see a others users watchlist such that I can gain a inside of other users prefered stocks. 
 - [ ] As a user, i want to be able to search and see a list of users, so that i can gain an inside of theirs portfolio.  
 
 ### Low:
