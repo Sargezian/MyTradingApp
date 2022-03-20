@@ -22,7 +22,7 @@ The goal of this app is to be as user friendly and simple as possible.
 
 ### Medium:
 - [ ] As a user, i want to be able to see a others users watchlist such that I can gain a inside of other users prefered stocks. 
-- [ ] As a user, i want to be able to search and see a list of users, so that i can gain an inside of theirs portfolio.  
+- [ ] As a user, i want to be able to search and see a list of users, so that i can gain an inside of theirs account.  
 
 ### Low:
 - [ ] As a user, i want to be able to share a stock to a friend by email. 
