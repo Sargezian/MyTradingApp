@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MyTradingApp</string>
+    <string name="content_description_end_icon">Login</string>
+    <string name="Welcome">Welcome</string>
+    <string name="SignInToContinue">Sign In To Continue</string>
+    <string name="SignIn">Sign In</string>
+
 </resources>
