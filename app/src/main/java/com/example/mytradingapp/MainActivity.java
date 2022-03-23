@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements PostAdapter.OnLis
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.rv);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.hasFixedSize();
 
@@ -53,6 +52,5 @@ public class MainActivity extends AppCompatActivity implements PostAdapter.OnLis
     @Override
     public void onClick(int position) {
         Toast.makeText(this, "Position: " + position, Toast.LENGTH_SHORT).show();
-
     }
 }
