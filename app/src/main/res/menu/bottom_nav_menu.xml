@@ -4,7 +4,7 @@
 
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/homeFragment"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home"
         android:enabled="true"/>
@@ -12,6 +12,7 @@
 
     <item
 
+        android:id="@+id/newsFragment"
         android:icon="@drawable/ic_baseline_article_24"
         android:title="News"
         android:enabled="true"/>
@@ -20,20 +21,21 @@
 
     <item
 
+        android:id="@+id/searchFragment"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search"
         android:enabled="true"/>
 
 
     <item
-
+        android:id="@+id/marketFragment"
         android:icon="@drawable/ic_baseline_public_24"
         android:title="Market"
         android:enabled="true"/>
 
 
     <item
-
+        android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="Settings"
         android:enabled="true"

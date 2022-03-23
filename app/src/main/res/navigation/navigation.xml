@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomnav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mytradingapp.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.example.mytradingapp.NewsFragment"
+        android:label="News"
+        tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.mytradingapp.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/marketFragment"
+        android:name="com.example.mytradingapp.MarketFragment"
+        android:label="Market"
+        tools:layout="@layout/fragment_market" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.mytradingapp.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

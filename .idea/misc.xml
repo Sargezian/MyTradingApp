@@ -7,7 +7,12 @@
         <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2125" />
         <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2125" />
         <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/drawable/ic_baseline_vpn_key_24.xml" value="0.1935" />
-        <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/layout/fragment_home.xml" value="0.34601449275362317" />
+        <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/layout/fragment_market.xml" value="0.34601449275362317" />
+        <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/layout/fragment_news.xml" value="0.34601449275362317" />
+        <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/layout/fragment_search.xml" value="0.34601449275362317" />
+        <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/layout/fragment_settings.xml" value="0.34601449275362317" />
         <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/layout/post_item.xml" value="0.34601449275362317" />
         <entry key="..\:/Users/abdul/AndroidStudioProjects/MyTradingApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
