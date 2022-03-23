@@ -29,6 +29,21 @@ public class MainActivity extends AppCompatActivity implements PostAdapter.OnLis
         posts.add(new Post("Stock"));
         posts.add(new Post("Stock1"));
         posts.add(new Post("Stock2"));
+        posts.add(new Post("Stock"));
+        posts.add(new Post("Stock1"));
+        posts.add(new Post("Stock2"));
+        posts.add(new Post("Stock"));
+        posts.add(new Post("Stock1"));
+        posts.add(new Post("Stock2"));
+        posts.add(new Post("Stock"));
+        posts.add(new Post("Stock1"));
+        posts.add(new Post("Stock2"));
+        posts.add(new Post("Stock"));
+        posts.add(new Post("Stock1"));
+        posts.add(new Post("Stock2"));
+        posts.add(new Post("Stock"));
+        posts.add(new Post("Stock1"));
+        posts.add(new Post("Stock2"));
 
         PostAdapter adapter = new PostAdapter(posts,this);
 
