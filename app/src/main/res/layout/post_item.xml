@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="20dp">
+    android:gravity="center"
+  >
 
     <TextView
         android:id="@+id/name"
@@ -13,6 +14,7 @@
         android:background="@color/black"
         android:textColor="@color/white"
         android:text="CORONA"
+        android:layout_margin="23dp"
         android:textSize="60sp"
         android:gravity="center"
         />
