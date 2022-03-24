@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MarketFragment"
     android:orientation="vertical"
+    android:background="#242229"
     >
 
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#242229"
+        app:tabTextColor="@color/white"
+        app:tabRippleColor="@color/purple_200"
+        app:tabSelectedTextColor="@color/purple_200"
+
         >
 
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/usaFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="USA"
+
 
             />
 
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/europeFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Europe"/>
@@ -30,6 +41,7 @@
 
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/asiaFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ASIA"/>
@@ -39,14 +51,18 @@
     </com.google.android.material.tabs.TabLayout>
 
 
+      <androidx.viewpager.widget.ViewPager
+          android:id="@+id/viewpager"
+          android:layout_width="match_parent"
+          android:layout_height="605dp"/>
 
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       />
+
+
+
+
+
 
 
 

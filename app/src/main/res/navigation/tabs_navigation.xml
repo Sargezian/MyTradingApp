@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tabs_navigation"
+    app:startDestination="@id/usaFragment">
+
+    <fragment
+        android:id="@+id/usaFragment"
+        android:name="com.example.mytradingapp.UsaFragment"
+        tools:layout="@layout/fragment_usa" />
+    <fragment
+        android:id="@+id/europeFragment"
+        android:name="com.example.mytradingapp.EuropeFragment"
+        tools:layout="@layout/fragment_europe" />
+    <fragment
+        android:id="@+id/asiaFragment"
+        android:name="com.example.mytradingapp.AsiaFragment"
+        tools:layout="@layout/fragment_asia" />
+</navigation>

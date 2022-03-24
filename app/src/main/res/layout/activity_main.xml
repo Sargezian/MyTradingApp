@@ -13,6 +13,7 @@
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbar"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:backgroundTint="#242229"
         app:title="TEST"
         />
 
@@ -33,25 +34,27 @@
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
-
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+        android:background="#242229"
         app:menu="@menu/bottom_nav_menu"
+        app:itemRippleColor="@color/purple_200"
+
         />
 
 
 
 
 
-    
+
 
 
 
