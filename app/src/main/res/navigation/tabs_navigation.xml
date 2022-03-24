@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/usaFragment"
         android:name="com.example.mytradingapp.UsaFragment"
-        tools:layout="@layout/fragment_usa" />
+        tools:layout="@layout/fragment_usa"
+        />
     <fragment
         android:id="@+id/europeFragment"
         android:name="com.example.mytradingapp.EuropeFragment"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MarketFragment"
     android:orientation="vertical"
-    android:background="#242229"
+    android:background="@color/DarkTheme"
     >
 
 

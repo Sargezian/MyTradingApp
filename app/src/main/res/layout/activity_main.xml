@@ -13,7 +13,7 @@
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbar"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:backgroundTint="#242229"
+        android:backgroundTint="@color/DarkTheme"
         app:title="TEST"
         />
 
@@ -40,7 +40,7 @@
         android:layout_height="match_parent"
         android:layout_weight="6"
         style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
-        android:background="#242229"
+        android:background="@color/DarkTheme"
         app:menu="@menu/bottom_nav_menu"
         app:itemRippleColor="@color/purple_200"
         app:itemIconSize="30dp"
