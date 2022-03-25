@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home"
         android:enabled="true"/>
-
 
     <item
 
@@ -17,22 +14,17 @@
         android:title="News"
         android:enabled="true"/>
 
-
-
     <item
-
         android:id="@+id/searchFragment"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search"
         android:enabled="true"/>
-
 
     <item
         android:id="@+id/marketFragment"
         android:icon="@drawable/ic_baseline_public_24"
         android:title="Market"
         android:enabled="true"/>
-
 
     <item
         android:id="@+id/settingsFragment"

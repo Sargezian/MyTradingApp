@@ -1,11 +1,23 @@
 <resources>
+
     <string name="app_name">MyTradingApp</string>
     <string name="content_description_end_icon">Login</string>
-    <string name="Welcome">Welcome</string>
-    <string name="SignInToContinue">Sign In To Continue</string>
     <string name="SignIn">Sign In</string>
     <string name="ThemeColor">Theme Color</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Welcome">Welcome</string>
+    <string name="SignInToContinue">Sign In To Continue</string>
+
+    <string name="NewUser">New User?</string>
+    <string name="SignUp">Signup</string>
+
+    <string name="CreateUser">Create User</string>
+    <string name="CreateUserToContinue">Create User To Continue</string>
+
+    <string name="Create">Create</string>
+    <string name="Back">Back</string>
+
 
 </resources>
