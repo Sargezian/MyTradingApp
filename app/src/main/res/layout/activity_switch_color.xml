@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SwitchColorActivity"
-    android:background="@color/DarkTheme"
+
     >
 
 
@@ -17,7 +17,6 @@
         android:gravity="center"
         android:paddingEnd="16dp"
         android:text="Change Theme color below..."
-        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +36,6 @@
         android:paddingEnd="16dp"
         android:text="@string/ThemeColor"
         android:textAppearance="?attr/textAppearanceSubtitle1"
-        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

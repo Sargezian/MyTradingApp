@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MarketFragment"
     android:orientation="vertical"
-    android:background="@color/DarkTheme"
+    style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+
     >
 
 
@@ -14,10 +15,10 @@
         android:id="@+id/tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#242229"
-        app:tabTextColor="@color/white"
         app:tabRippleColor="@color/purple_200"
         app:tabSelectedTextColor="@color/purple_200"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+
 
         >
 
@@ -27,6 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="USA"
+
+
 
 
             />
@@ -54,7 +57,7 @@
       <androidx.viewpager.widget.ViewPager
           android:id="@+id/viewpager"
           android:layout_width="match_parent"
-          android:layout_height="605dp"/>
+          android:layout_height="match_parent"/>
 
 
 

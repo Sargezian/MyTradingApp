@@ -13,6 +13,6 @@
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="40dp"
-        android:textColor="@color/white"/>
+       />
 
 </LinearLayout>

@@ -17,9 +17,9 @@ public class SwitchColorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-           /* setTheme(R.style.);*/
+           setTheme(com.google.android.material.R.style.Theme_Material3_Dark);
         } else {
-           /* setTheme(R.style.*//*lightmode*//*);*/
+            setTheme(com.google.android.material.R.style.Theme_Material3_Light);
         }
 
         super.onCreate(savedInstanceState);
