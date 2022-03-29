@@ -1,9 +1,11 @@
-package com.example.mytradingapp;
+package com.example.mytradingapp.View.SignUp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.mytradingapp.R;
 
 public class SignUpActivity extends AppCompatActivity {
 

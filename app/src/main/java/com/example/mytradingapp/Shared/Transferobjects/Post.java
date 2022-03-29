@@ -1,4 +1,4 @@
-package com.example.mytradingapp;
+package com.example.mytradingapp.Shared.Transferobjects;
 
 public class Post {
 
