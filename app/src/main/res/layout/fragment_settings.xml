@@ -9,27 +9,28 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Settings"
+        android:text="Login"
         android:textSize="35sp"
         android:textStyle="bold"
-
         />
 
-   <!-- <TextView
-        android:id="@+id/mtrl_list_item_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:paddingEnd="16dp"
-        android:maxLines="1"
-        android:textAppearance="?attr/textAppearanceSubtitle1"
-        android:text="@string/ThemeColor"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="@color/white"/>-->
+
+    <!-- <TextView
+         android:id="@+id/mtrl_list_item_text"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_vertical"
+         android:paddingEnd="16dp"
+         android:maxLines="1"
+         android:textAppearance="?attr/textAppearanceSubtitle1"
+         android:text="@string/ThemeColor"
+         android:textStyle="bold"
+         android:gravity="center"
+         android:textColor="@color/white"/>-->
 
 
 

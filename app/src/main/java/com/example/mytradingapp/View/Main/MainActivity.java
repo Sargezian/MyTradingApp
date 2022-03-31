@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 import com.example.mytradingapp.R;

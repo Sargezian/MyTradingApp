@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
         Button button = findViewById(R.id.buttonid);
-
     }
 
     public void login(View view) {
@@ -30,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
 
         /*textView.setText("Yeah");
         Log.i("test", "This is a message");*/
-
     }
 
 
