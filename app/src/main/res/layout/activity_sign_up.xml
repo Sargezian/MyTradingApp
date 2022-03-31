@@ -88,11 +88,10 @@
         app:layout_constraintVertical_bias="0.674" />
 
     <Button
-        android:id="@+id/buttonBackid"
+        android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/DarkTheme"
-        android:onClick="back"
         android:text="@string/Back"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

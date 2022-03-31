@@ -24,14 +24,14 @@ public class SettingsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         button = view.findViewById(R.id.login);
 
-        button.setOnClickListener(this::onSend);
+        button.setOnClickListener(this::Login);
 
         // Inflate the layout for this fragment
         return view ;
     }
 
 
-    public void onSend(View v) {
+    public void Login(View v) {
         Intent intent = new Intent(getContext(), LoginActivity.class);
         startActivity(intent);
     }
