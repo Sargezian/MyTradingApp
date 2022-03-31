@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.Settings.SettingsFragment"
-    style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
-   >
+    style="@style/Widget.MaterialComponents.BottomNavigationView.Colored">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/login"
+    <FrameLayout
+        android:id="@+id/standard_bottom_sheet"
+        style="?attr/bottomSheetStyle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Login"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        />
+        android:layout_height="310dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <!-- Bottom sheet contents. -->
+        <TextView
+            android:layout_width="352dp"
+            android:layout_height="181dp"
+            android:text="Settings"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchMaterial2"
+            android:layout_width="348dp"
+            android:layout_height="43dp"
+            android:checked="true"
+            android:text="@string/ThemeColor"
+            android:textSize="20sp"
+            android:layout_marginTop="75dp"
+            />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="217dp"
+            android:layout_height="115dp"
+            android:text="Login"
+            android:textSize="20sp"
+            android:layout_marginTop="175dp"
+            />
 
 
-    <!-- <TextView
-         android:id="@+id/mtrl_list_item_text"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_gravity="center_vertical"
-         android:paddingEnd="16dp"
-         android:maxLines="1"
-         android:textAppearance="?attr/textAppearanceSubtitle1"
-         android:text="@string/ThemeColor"
-         android:textStyle="bold"
-         android:gravity="center"
-         android:textColor="@color/white"/>-->
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
-
-</FrameLayout>

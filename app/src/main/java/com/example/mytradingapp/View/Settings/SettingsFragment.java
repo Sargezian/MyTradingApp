@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.example.mytradingapp.R;
 import com.example.mytradingapp.View.Login.LoginActivity;
@@ -17,15 +16,15 @@ import com.example.mytradingapp.View.Login.LoginActivity;
 
 public class SettingsFragment extends Fragment {
 
-    TextView textView;
+    Button button;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
+        button = view.findViewById(R.id.login);
 
-        textView = view.findViewById(R.id.login);
-        textView.setOnClickListener(this::onSend);
+        button.setOnClickListener(this::onSend);
 
         // Inflate the layout for this fragment
         return view ;

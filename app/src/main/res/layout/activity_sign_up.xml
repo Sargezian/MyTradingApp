@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.SignUp.SignUpActivity">
+    tools:context=".View.SignUp.SignUpActivity"
+    android:padding="23dp">
 
     <TextView
         android:id="@+id/textView3"
@@ -78,6 +79,7 @@
         android:backgroundTint="@color/DarkTheme"
         android:onClick="Create"
         android:text="@string/Create"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.712"
@@ -92,6 +94,7 @@
         android:backgroundTint="@color/DarkTheme"
         android:onClick="back"
         android:text="@string/Back"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.277"
