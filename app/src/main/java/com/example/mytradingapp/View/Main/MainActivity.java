@@ -3,6 +3,8 @@ package com.example.mytradingapp.View.Main;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -10,6 +12,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 
 import com.example.mytradingapp.R;
@@ -54,5 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 }
