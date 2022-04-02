@@ -1,11 +1,17 @@
 package com.example.mytradingapp.View.StockView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.mytradingapp.R;
+import com.example.mytradingapp.View.Home.HomeFragment;
 import com.scichart.charting.modifiers.ModifierGroup;
 import com.scichart.charting.visuals.SciChartSurface;
 import com.scichart.charting.visuals.annotations.HorizontalAnchorPoint;
@@ -27,9 +33,9 @@ public class StockViewActivity extends AppCompatActivity {
             // Create a SciChartSurface
             SciChartSurface surface = new SciChartSurface(this);
             // Get a layout declared in "activity_main.xml" by id
-            LinearLayout chartLayout = (LinearLayout) findViewById(R.id.chart_layout);
+            ConstraintLayout constraintlayout = (ConstraintLayout) findViewById(R.id.chart_layout);
             // Add the SciChartSurface to the layout
-            chartLayout.addView(surface);
+            constraintlayout.addView(surface);
             // Initialize the SciChartBuilder
             SciChartBuilder.init(this);
             // Obtain the SciChartBuilder instance
@@ -65,5 +71,16 @@ public class StockViewActivity extends AppCompatActivity {
             // Add the interactions to the ChartModifiers collection of the surface
             Collections.addAll(surface.getChartModifiers(), chartModifiers);
 
+
+            Button button = findViewById(R.id.BackToHome);
+
+            button.setOnClickListener(this::Back);
+
     }
+
+    public void Back(View v) {
+        Intent intent = new Intent(this, HomeFragment.class);
+        startActivity(intent);
+    }
+
 }

@@ -9,14 +9,14 @@
     >
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:gravity="center"
 
+    <Button
+        android:id="@+id/stockView"
+        android:layout_width="217dp"
+        android:layout_height="115dp"
+        android:text="StockView"
+        android:textSize="20sp"
+        android:layout_marginTop="175dp"
         />
 
 </FrameLayout>
