@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.mytradingapp.R;
 import com.example.mytradingapp.View.Home.HomeFragment;
+import com.example.mytradingapp.View.Main.MainActivity;
 import com.example.mytradingapp.View.SignUp.SignUpActivity;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         Button button = findViewById(R.id.buttonid);
 
         textView.setOnClickListener(this::Signup);
-        /*button.setOnClickListener(this::Login);*/
+        button.setOnClickListener(this::Login);
 
 
     }
@@ -39,11 +40,10 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-    /*public void Login(View v) {
-        Intent intent = new Intent(this, HomeFragment.class);
+    public void Login(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }*/
+    }
 
   /*  public void login(View view) {
         Toast.makeText(this, "Hi User", Toast.LENGTH_LONG).show();
