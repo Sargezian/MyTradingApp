@@ -36,9 +36,9 @@ public class LoginActivity extends AppCompatActivity {
         textView.setOnClickListener(this::Signup);
         button.setOnClickListener(this::retrieveDataFromInternet);
 
-
         viewModel = new ViewModelProvider(this).get(LoginActivityViewModel.class);
         viewModel.getMessage().observe(this, message -> loginText.setText(message));
+
         viewModel.isLoading().observe(this, isLoading -> {
             int visibility = isLoading ? View.VISIBLE : View.INVISIBLE;
             progressBar.setVisibility(visibility);
@@ -63,8 +63,6 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
-
-
 
   /*  public void login(View view) {
         Toast.makeText(this, "Hi User", Toast.LENGTH_LONG).show();

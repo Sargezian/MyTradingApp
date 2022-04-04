@@ -3,7 +3,9 @@ package com.example.mytradingapp.View.StockView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +14,9 @@ import android.widget.LinearLayout;
 
 import com.example.mytradingapp.R;
 import com.example.mytradingapp.View.Home.HomeFragment;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 import com.scichart.charting.modifiers.ModifierGroup;
 import com.scichart.charting.visuals.SciChartSurface;
 import com.scichart.charting.visuals.annotations.HorizontalAnchorPoint;
@@ -25,11 +30,38 @@ import java.util.Collections;
 
 public class StockViewActivity extends AppCompatActivity {
 
+    GraphView graphView;
+
+    @SuppressLint("ResourceAsColor")
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_stock_view);
 
-            setContentView(R.layout.activity_stock_view);
+        Button button = findViewById(R.id.BackToHome);
+
+        button.setOnClickListener(this::Back);
+
+        // on below line we are initializing our graph view.
+        graphView = findViewById(R.id.idGraphView);
+
+        // on below line we are adding data to our graph view.
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(getDataPoint());
+        graphView.addSeries(series);
+        series.setColor(Color.rgb(88,255,69));
+        series.setThickness(18);
+        series.setDrawBackground(true);
+        series.setBackgroundColor(Color.argb(60,95,226,156));
+        series.setDrawDataPoints(true);
+        series.setDataPointsRadius(15);
+
+
+        graphView.setTitle("My Graph View");
+        graphView.setTitleColor(R.color.purple_200);
+        graphView.setBackgroundColor(Color.rgb(36,34,41));
+        graphView.setTitleTextSize(18);
+
+/*            setContentView(R.layout.activity_stock_view);
             // Create a SciChartSurface
             SciChartSurface surface = new SciChartSurface(this);
             // Get a layout declared in "activity_main.xml" by id
@@ -69,13 +101,20 @@ public class StockViewActivity extends AppCompatActivity {
             // Add the annotation to the Annotations collection of the surface
             Collections.addAll(surface.getAnnotations(), textAnnotation);
             // Add the interactions to the ChartModifiers collection of the surface
-            Collections.addAll(surface.getChartModifiers(), chartModifiers);
+            Collections.addAll(surface.getChartModifiers(), chartModifiers); */
 
+    }
 
-            Button button = findViewById(R.id.BackToHome);
+    private DataPoint[] getDataPoint() {
 
-            button.setOnClickListener(this::Back);
-
+        DataPoint[] dp=new DataPoint[] {
+                new DataPoint(0,1),
+                new DataPoint(2,5),
+                new DataPoint(3,1),
+                new DataPoint(5,6),
+                new DataPoint(8,3)
+        };
+        return dp;
     }
 
     public void Back(View v) {

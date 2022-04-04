@@ -51,4 +51,7 @@ dependencies {
     implementation (group: 'com.scichart.library', name: 'extensions', version: '3.0.0.4253', ext: 'aar')
     implementation (group: 'com.scichart.library', name: 'extensions3d', version: '3.0.0.4253', ext: 'aar')
 
+    //graph2
+    implementation 'com.jjoe64:graphview:4.2.2'
+
 }
