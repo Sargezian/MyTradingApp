@@ -9,27 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyTradingApp">
-
-        <activity android:name=".View.StockView.StockViewActivity"
+        <activity
+            android:name=".View.StockView.StockViewActivity"
             android:exported="false" />
-
         <activity
             android:name=".View.SignUp.SignUpActivity"
             android:exported="false" />
         <activity android:name=".View.Login.LoginActivity" />
-
         <activity
             android:name=".View.Main.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

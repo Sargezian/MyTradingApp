@@ -11,7 +11,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter()
-        maven { url 'https://www.myget.org/F/abtsoftware/maven' }
+        maven { url 'https://www.myget.org/F/abtsoftware/maven'}
     }
 }
 rootProject.name = "MyTradingApp"
