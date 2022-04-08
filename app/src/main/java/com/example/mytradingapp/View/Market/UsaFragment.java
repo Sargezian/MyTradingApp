@@ -3,12 +3,14 @@ package com.example.mytradingapp.View.Market;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ import com.example.mytradingapp.Shared.Transferobjects.Item;
 import com.example.mytradingapp.Shared.Adapter.StockTitleAdapter;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 import com.example.mytradingapp.Shared.Transferobjects.Title;
+import com.example.mytradingapp.View.News.NewsFragment;
 
 import java.util.ArrayList;
 
@@ -26,6 +29,7 @@ public class UsaFragment extends Fragment implements StockTitleAdapter.OnListIte
 
 
     private RecyclerView recyclerView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,28 +90,23 @@ public class UsaFragment extends Fragment implements StockTitleAdapter.OnListIte
         items.add(new Item(1,stock));
         items.add(new Item(1,stock1));
 
-
-
-
         StockTitleAdapter adapter = new StockTitleAdapter(items,this);
 
-
-
         recyclerView.setAdapter(adapter);
 
         recyclerView.setAdapter(adapter);
-
-
-
 
 
         return inflate;
 
     }
 
-
     @Override
     public void onClick(int position) {
         Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
     }
+
+
+
+
 }
