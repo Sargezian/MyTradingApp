@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
     public void retrieveDataFromInternet(View v) {
         viewModel.retrieveData();
         new Timer().schedule(new TimerTask() {
@@ -63,13 +64,5 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
-
-  /*  public void login(View view) {
-        Toast.makeText(this, "Hi User", Toast.LENGTH_LONG).show();
-
-        *//*textView.setText("Yeah");
-        Log.i("test", "This is a message");*//*
-    }*/
-
 
 }

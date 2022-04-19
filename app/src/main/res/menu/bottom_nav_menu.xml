@@ -8,13 +8,6 @@
         android:enabled="true"/>
 
     <item
-
-        android:id="@+id/newsFragment"
-        android:icon="@drawable/ic_baseline_article_24"
-        android:title="News"
-        android:enabled="true"/>
-
-    <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search"
@@ -32,6 +25,7 @@
         android:title="Settings"
         android:enabled="true"
         />
+
 
 
 </menu>

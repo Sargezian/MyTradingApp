@@ -1,65 +1,37 @@
 package com.example.mytradingapp.View.StockView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
 
 import com.example.mytradingapp.R;
-import com.example.mytradingapp.View.Home.HomeFragment;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-import com.scichart.charting.modifiers.ModifierGroup;
-import com.scichart.charting.visuals.SciChartSurface;
-import com.scichart.charting.visuals.annotations.HorizontalAnchorPoint;
-import com.scichart.charting.visuals.annotations.TextAnnotation;
-import com.scichart.charting.visuals.annotations.VerticalAnchorPoint;
-import com.scichart.charting.visuals.axes.IAxis;
-import com.scichart.drawing.utility.ColorUtil;
-import com.scichart.extensions.builders.SciChartBuilder;
-
-import java.util.Collections;
-
-public class StockViewActivity extends AppCompatActivity {
-
-    GraphView graphView;
-
-    @SuppressLint("ResourceAsColor")
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stock_view);
-
-        Button button = findViewById(R.id.BackToHome);
-
-        button.setOnClickListener(this::Back);
-
-        // on below line we are initializing our graph view.
-        graphView = findViewById(R.id.idGraphView);
-
-        // on below line we are adding data to our graph view.
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(getDataPoint());
-        graphView.addSeries(series);
-        series.setColor(Color.rgb(88,255,69));
-        series.setThickness(18);
-        series.setDrawBackground(true);
-        series.setBackgroundColor(Color.argb(60,95,226,156));
-        series.setDrawDataPoints(true);
-        series.setDataPointsRadius(15);
 
 
-        graphView.setTitle("My Graph View");
-        graphView.setTitleColor(R.color.purple_200);
-        graphView.setBackgroundColor(Color.rgb(36,34,41));
-        graphView.setTitleTextSize(18);
+public class StockViewFragment extends Fragment {
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_stock_view, container, false);
+
+
+        // Inflate the layout for this fragment
+        return view;
+    }
+
+
+}
+
 
 /*            setContentView(R.layout.activity_stock_view);
             // Create a SciChartSurface
@@ -102,24 +74,3 @@ public class StockViewActivity extends AppCompatActivity {
             Collections.addAll(surface.getAnnotations(), textAnnotation);
             // Add the interactions to the ChartModifiers collection of the surface
             Collections.addAll(surface.getChartModifiers(), chartModifiers); */
-
-    }
-
-    private DataPoint[] getDataPoint() {
-
-        DataPoint[] dp=new DataPoint[] {
-                new DataPoint(0,1),
-                new DataPoint(2,5),
-                new DataPoint(3,1),
-                new DataPoint(5,6),
-                new DataPoint(8,3)
-        };
-        return dp;
-    }
-
-    public void Back(View v) {
-        Intent intent = new Intent(this, HomeFragment.class);
-        startActivity(intent);
-    }
-
-}
