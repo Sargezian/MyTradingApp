@@ -7,15 +7,15 @@
 
     <fragment
         android:id="@+id/usaFragment"
-        android:name="com.example.mytradingapp.View.Market.UsaFragment"
+        android:name="com.example.mytradingapp.View.Market.TopActiveFragment"
         tools:layout="@layout/fragment_usa"
         />
     <fragment
         android:id="@+id/europeFragment"
-        android:name="com.example.mytradingapp.View.Market.EuropeFragment"
+        android:name="com.example.mytradingapp.View.Market.TopLosersFragment"
         tools:layout="@layout/fragment_europe" />
     <fragment
         android:id="@+id/asiaFragment"
-        android:name="com.example.mytradingapp.View.Market.AsiaFragment"
+        android:name="com.example.mytradingapp.View.Market.TopGainersFragment"
         tools:layout="@layout/fragment_asia" />
 </navigation>

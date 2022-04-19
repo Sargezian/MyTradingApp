@@ -11,19 +11,12 @@ import android.view.ViewGroup;
 import com.example.mytradingapp.R;
 
 
-public class EuropeFragment extends Fragment {
-
+public class TopGainersFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View inflate = inflater.inflate(R.layout.fragment_europe, container, false);
-
-
-
-        return inflate;
+        return inflater.inflate(R.layout.fragment_asia, container, false);
     }
-
-
 }

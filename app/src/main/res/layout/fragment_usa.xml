@@ -3,11 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Market.UsaFragment"
+    tools:context=".View.Market.TopActiveFragment"
     android:orientation="vertical"
     android:padding="15dp">
 
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/white"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list"

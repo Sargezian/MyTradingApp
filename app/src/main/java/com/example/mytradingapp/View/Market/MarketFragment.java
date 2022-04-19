@@ -39,9 +39,9 @@ public class MarketFragment extends Fragment {
        tabLayout = view.findViewById(R.id.tab);
        viewPager = view.findViewById(R.id.viewpager);
        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-       adapter.addFragment(new UsaFragment(),"Usa");
-       adapter.addFragment(new EuropeFragment(),"Europe");
-       adapter.addFragment(new AsiaFragment(),"Asia");
+       adapter.addFragment(new TopActiveFragment(),"Top Active");
+       adapter.addFragment(new TopLosersFragment(),"Top Losers");
+       adapter.addFragment(new TopGainersFragment(),"Top Gainers");
        viewPager.setAdapter(adapter);
        tabLayout.setupWithViewPager(viewPager);
 

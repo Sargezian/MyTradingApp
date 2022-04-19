@@ -1,11 +1,17 @@
 package com.example.mytradingapp.Shared.Transferobjects;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Stock {
 
 
     private String ticker;
+
     private double price;
+
     private double changesPercentage;
+
     private String companyName;
 
 

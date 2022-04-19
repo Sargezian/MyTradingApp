@@ -19,11 +19,11 @@ import java.util.ArrayList;
 
 public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
-    private ArrayList<Item> items;
+    private ArrayList<Stock> stocks;
     OnListItemClickListener listener;
 
-    public StockTitleAdapter(ArrayList<Item> items, OnListItemClickListener listener) {
-        this.items = items;
+    public StockTitleAdapter(ArrayList<Stock> stocks, OnListItemClickListener listener) {
+        this.stocks = stocks;
         this.listener = listener;
 
     }
@@ -33,15 +33,6 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
-        if (viewType == 0){
-            return new titleViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(
-                            R.layout.item_title,
-                            parent,
-                            false
-                    )
-            );
-        } else {
 
 
 
@@ -52,7 +43,6 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                             false
                     )
             );
-        }
 
 
 
@@ -61,28 +51,19 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-        if (getItemViewType(position) == 0){
-            Title title = (Title) items.get(position).getObject();
-            ((titleViewHolder) holder).setTitle(title);
-        } else {
-            Stock stock = (Stock) items.get(position).getObject();
+        Stock stock = (Stock) stocks.get(position);
             ((StockViewHolder)holder).setStock(stock);
 
-
-        }
 
 
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return stocks.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return items.get(position).getType();
-    }
+
 
     public class StockViewHolder extends RecyclerView.ViewHolder {
 
@@ -139,22 +120,8 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
 
-    public class titleViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView title;
-
-        public titleViewHolder(@NonNull View itemView) {
-            super(itemView);
-            title = itemView.findViewById(R.id.title);
-
-        }
 
 
-        public void setTitle(Title title){
-            this.title.setText(title.getTitle());
-        }
-
-    }
 
     public interface OnListItemClickListener {
         void onClick(int position);
