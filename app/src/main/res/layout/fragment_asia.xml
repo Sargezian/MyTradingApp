@@ -5,14 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".View.Market.TopGainersFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ProgressBar
+        android:id="@+id/progress_bar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/white"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Asia"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="40dp"
-       />
+
+        />
+
 
 </LinearLayout>

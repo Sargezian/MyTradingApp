@@ -32,10 +32,6 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-
-
-
-
             return new StockViewHolder(
                     LayoutInflater.from(parent.getContext()).inflate(
                             R.layout.post_item,

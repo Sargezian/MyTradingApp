@@ -64,7 +64,7 @@ public class TopActiveFragment extends Fragment implements StockTitleAdapter.OnL
     private void getActiveStocks() {
 
     topactiveViewmodel.getActiveStockLiveData().observe(getViewLifecycleOwner(), stockResponse -> {
-        if (stockResponse != null && stockResponse != null && !stockResponse.isEmpty()){
+        if (stockResponse != null && !stockResponse.isEmpty()){
 
             progressBar.setVisibility(View.GONE);
             List<Stock> stocks = stockResponse;

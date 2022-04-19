@@ -11,17 +11,17 @@ import java.util.List;
 public class TopActiveViewModel extends ViewModel {
 
    private StockRepository stockRepository;
-   private LiveData<List<Stock>> stockResponseLiveData;
+   private LiveData<List<Stock>> ActiveStockResponseLiveData;
 
     public TopActiveViewModel() {
 
         stockRepository = StockRepository.getInstance();
-        stockResponseLiveData = stockRepository.getActiveStocks();
+        ActiveStockResponseLiveData = stockRepository.getActiveStocks();
     }
 
 
     public LiveData<List<Stock>> getActiveStockLiveData() {
-        return stockResponseLiveData;
+        return ActiveStockResponseLiveData;
     }
 
 
