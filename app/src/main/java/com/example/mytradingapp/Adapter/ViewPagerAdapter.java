@@ -1,4 +1,4 @@
-package com.example.mytradingapp.Shared.Adapter;
+package com.example.mytradingapp.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

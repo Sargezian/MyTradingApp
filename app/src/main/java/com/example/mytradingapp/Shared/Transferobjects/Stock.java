@@ -7,11 +7,8 @@ public class Stock {
 
 
     private String ticker;
-
     private double price;
-
     private double changesPercentage;
-
     private String companyName;
 
 

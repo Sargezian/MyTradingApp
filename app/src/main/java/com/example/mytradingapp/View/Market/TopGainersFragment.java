@@ -12,15 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.example.mytradingapp.Adapter.OnListItemClickListener;
 import com.example.mytradingapp.R;
-import com.example.mytradingapp.Shared.Adapter.StockTitleAdapter;
+import com.example.mytradingapp.Adapter.StockTitleAdapter;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class TopGainersFragment extends Fragment implements StockTitleAdapter.OnListItemClickListener{
+public class TopGainersFragment extends Fragment implements OnListItemClickListener {
 
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
@@ -45,10 +46,7 @@ public class TopGainersFragment extends Fragment implements StockTitleAdapter.On
         topGainersViewModel = new ViewModelProvider(this).get(TopGainersViewModel.class);
 
 
-
         getGainersStock();
-
-
 
 
         return inflate;
@@ -65,12 +63,9 @@ public class TopGainersFragment extends Fragment implements StockTitleAdapter.On
 
                 stockTitleAdapter.notifyDataSetChanged();
 
-
             }
 
-
         });
-
 
     }
 

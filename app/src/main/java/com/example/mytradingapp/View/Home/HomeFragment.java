@@ -1,10 +1,8 @@
 package com.example.mytradingapp.View.Home;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -13,13 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.mytradingapp.R;
-import com.example.mytradingapp.View.Login.LoginActivity;
-import com.example.mytradingapp.View.News.NewsFragment;
-import com.example.mytradingapp.View.StockView.StockViewFragment;
+import com.example.mytradingapp.View.StockView.StockFragment;
 
 
 public class HomeFragment extends Fragment {
-
 
     Button button;
 
@@ -37,7 +32,7 @@ public class HomeFragment extends Fragment {
 
     public void onClick(View view ) {
         FragmentTransaction fr = getFragmentManager().beginTransaction();
-        fr.replace(R.id.nav_host_fragment, new NewsFragment());
+        fr.replace(R.id.nav_host_fragment, new StockFragment());
         fr.commit();
     }
 

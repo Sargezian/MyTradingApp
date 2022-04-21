@@ -14,7 +14,7 @@
         android:id="@+id/newsFragment"
         android:name="com.example.mytradingapp.View.News.NewsFragment"
         android:label="News"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_stock" />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.mytradingapp.View.Search.SearchFragment"

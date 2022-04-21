@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mytradingapp.R;
-import com.example.mytradingapp.Shared.Adapter.ViewPagerAdapter;
+import com.example.mytradingapp.Adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 

@@ -1,6 +1,5 @@
-package com.example.mytradingapp.Shared.Adapter;
+package com.example.mytradingapp.Adapter;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mytradingapp.R;
-import com.example.mytradingapp.Shared.Transferobjects.Item;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
-import com.example.mytradingapp.Shared.Transferobjects.Title;
 
 import java.util.ArrayList;
 
 
-public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements OnListItemClickListener {
 
     private ArrayList<Stock> stocks;
     OnListItemClickListener listener;
@@ -59,6 +56,10 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return stocks.size();
     }
 
+    @Override
+    public void onClick(int position) {
+
+    }
 
 
     public class StockViewHolder extends RecyclerView.ViewHolder {
@@ -68,8 +69,6 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         private TextView price;
         private TextView changesPercentage;
         private TextView companyName;
-
-
 
 
         public StockViewHolder(@NonNull View itemView) {
@@ -115,15 +114,6 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     }
 
-
-
-
-
-    public interface OnListItemClickListener {
-        void onClick(int position);
-
-
-    }
 
 
 }

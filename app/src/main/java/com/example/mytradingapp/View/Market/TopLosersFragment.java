@@ -12,15 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.example.mytradingapp.Adapter.OnListItemClickListener;
 import com.example.mytradingapp.R;
-import com.example.mytradingapp.Shared.Adapter.StockTitleAdapter;
+import com.example.mytradingapp.Adapter.StockTitleAdapter;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class TopLosersFragment extends Fragment implements StockTitleAdapter.OnListItemClickListener{
+public class TopLosersFragment extends Fragment implements OnListItemClickListener {
 
 
     private RecyclerView recyclerView;
@@ -70,7 +71,6 @@ public class TopLosersFragment extends Fragment implements StockTitleAdapter.OnL
         });
 
     }
-
 
     @Override
     public void onClick(int position) {
