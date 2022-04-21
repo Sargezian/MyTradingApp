@@ -35,7 +35,6 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
 
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
-    private ImageView imageView;
     private ArrayList<News> newsArrayList = new ArrayList<>();
     private NewsViewModel newsViewModel;
     private NewsAdapter newsAdapter;
@@ -51,7 +50,6 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
 
         recyclerView = inflate.findViewById(R.id.rvNews_list);
         progressBar = inflate.findViewById(R.id.newsprogress_bar);
-        imageView = inflate.findViewById(R.id.imageView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(inflate.getContext()));
         recyclerView.hasFixedSize();
@@ -85,14 +83,14 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
 
     }
 
-
     @Override
     public void onClick(int position) {
 
+        Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
 
 
         String action = Intent.ACTION_VIEW;
-        Uri uri = Uri.parse("je");
+        Uri uri = Uri.parse("google.com");
 
         Intent intent = new Intent(action, uri);
         startActivity(intent);

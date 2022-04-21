@@ -46,6 +46,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         News newss = (News) news.get(position);
+
         ((NewsAdapter.NewsViewHolder)holder).setNews(newss);
 
     }
@@ -68,7 +69,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         private TextView title;
         private TextView text;
         private ImageView image;
-   /*     private TextView url;*/
+
 
 
         public NewsViewHolder(@NonNull View itemView) {
@@ -95,10 +96,8 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             publishedDate.setText(news.getPublishedDate());
             title.setText(news.getTitle());
             text.setText(news.getText());
-          /*  url.setText(news.getUrl());*/
 
             Glide.with(image.getContext()).load(news.getImage()).into(image);
-
 
 
         }
