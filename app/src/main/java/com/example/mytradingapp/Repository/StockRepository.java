@@ -107,6 +107,7 @@ public class StockRepository {
 
                 if (response.isSuccessful()){
                     stockList3.setValue(response.body());
+                    Log.e("Retrofit", "getting Gainers Stocks :(");
                 }
             }
 

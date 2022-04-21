@@ -17,6 +17,8 @@ import com.example.mytradingapp.R;
 import com.example.mytradingapp.Adapter.StockTitleAdapter;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,14 +30,16 @@ public class TopGainersFragment extends Fragment implements OnListItemClickListe
     private ArrayList<Stock> stockArrayList = new ArrayList<>();
     private StockTitleAdapter stockTitleAdapter;
     private TopGainersViewModel topGainersViewModel;
+
+    private final DecimalFormat df = new DecimalFormat("0.00");
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View inflate = inflater.inflate(R.layout.fragment_asia, container, false);
 
-        recyclerView = inflate.findViewById(R.id.rv_list2);
-        progressBar = inflate.findViewById(R.id.progress_bar2);
+        recyclerView = inflate.findViewById(R.id.rv_list3);
+        progressBar = inflate.findViewById(R.id.progress_bar3);
         recyclerView.setLayoutManager(new LinearLayoutManager(inflate.getContext()));
         recyclerView.hasFixedSize();
         stockTitleAdapter = new StockTitleAdapter(stockArrayList,this);
@@ -53,12 +57,21 @@ public class TopGainersFragment extends Fragment implements OnListItemClickListe
     }
 
     private void getGainersStock() {
-
+        df.setRoundingMode(RoundingMode.HALF_UP);
 
         topGainersViewModel.getGainersStockResponseLiveData().observe(getViewLifecycleOwner(),stocks -> {
             if (stocks != null && !stocks.isEmpty()){
                 progressBar.setVisibility(View.GONE);
                 List<Stock> stockList = stocks;
+
+                for (Stock stock : stockList) {
+
+                    stock.setChangesPercentage(Double.parseDouble(df.format(stock.getChangesPercentage())));
+                }
+
+
+
+
                 stockArrayList.addAll(stockList);
 
                 stockTitleAdapter.notifyDataSetChanged();

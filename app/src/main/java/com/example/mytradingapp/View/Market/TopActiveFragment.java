@@ -18,6 +18,8 @@ import com.example.mytradingapp.R;
 import com.example.mytradingapp.Adapter.StockTitleAdapter;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,8 @@ public class TopActiveFragment extends Fragment implements OnListItemClickListen
     private ArrayList<Stock> stockArrayList = new ArrayList<>();
     private TopActiveViewModel topactiveViewmodel;
     private StockTitleAdapter stockTitleAdapter;
+    private final DecimalFormat df = new DecimalFormat("0.00");
+
 
 
 
@@ -61,12 +65,16 @@ public class TopActiveFragment extends Fragment implements OnListItemClickListen
     }
 
     private void getActiveStocks() {
-
+        df.setRoundingMode(RoundingMode.HALF_UP);
     topactiveViewmodel.getActiveStockLiveData().observe(getViewLifecycleOwner(), stockResponse -> {
         if (stockResponse != null && !stockResponse.isEmpty()){
 
             progressBar.setVisibility(View.GONE);
             List<Stock> stocks = stockResponse;
+            for (Stock stock : stocks) {
+
+                stock.setChangesPercentage(Double.parseDouble(df.format(stock.getChangesPercentage())));
+            }
             stockArrayList.addAll(stocks);
 
             stockTitleAdapter.notifyDataSetChanged();
