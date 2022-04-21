@@ -12,9 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyTradingApp">
-        <activity
-            android:name=".View.StockView.StockViewActivity"
-            android:exported="false" />
+
         <activity
             android:name=".View.SignUp.SignUpActivity"
             android:exported="false" />
@@ -27,8 +25,16 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>

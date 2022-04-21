@@ -1,5 +1,7 @@
 package com.example.mytradingapp.View.News;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,9 +9,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -37,6 +41,7 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
     private NewsAdapter newsAdapter;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -61,6 +66,7 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
         getStockNews();
 
 
+
         return inflate;
     }
 
@@ -79,12 +85,17 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
 
     }
 
+
     @Override
     public void onClick(int position) {
-        Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
 
+
+
+        String action = Intent.ACTION_VIEW;
+        Uri uri = Uri.parse("je");
+
+        Intent intent = new Intent(action, uri);
+        startActivity(intent);
     }
-
-
 
 }

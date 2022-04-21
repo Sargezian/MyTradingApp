@@ -1,5 +1,6 @@
 package com.example.mytradingapp.Adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.mytradingapp.R;
 import com.example.mytradingapp.Shared.Transferobjects.News;
 
@@ -18,6 +20,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
     private ArrayList<News> news;
     OnListItemClickListener listener;
+
 
     public NewsAdapter(ArrayList<News> news, OnListItemClickListener listener) {
         this.news = news;
@@ -45,7 +48,6 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         News newss = (News) news.get(position);
         ((NewsAdapter.NewsViewHolder)holder).setNews(newss);
 
-
     }
 
     @Override
@@ -65,6 +67,8 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         private TextView publishedDate;
         private TextView title;
         private TextView text;
+        private ImageView image;
+   /*     private TextView url;*/
 
 
         public NewsViewHolder(@NonNull View itemView) {
@@ -73,12 +77,14 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 @Override
                 public void onClick(View view) {
                     listener.onClick(getBindingAdapterPosition());
+
                 }
             });
             symbol = itemView.findViewById(R.id.symbol);
             publishedDate = itemView.findViewById(R.id.publishedDate);
             title = itemView.findViewById(R.id.title);
             text = itemView.findViewById(R.id.text);
+            image = itemView.findViewById(R.id.imageView);
 
 
         }
@@ -89,6 +95,11 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             publishedDate.setText(news.getPublishedDate());
             title.setText(news.getTitle());
             text.setText(news.getText());
+          /*  url.setText(news.getUrl());*/
+
+            Glide.with(image.getContext()).load(news.getImage()).into(image);
+
+
 
         }
 
