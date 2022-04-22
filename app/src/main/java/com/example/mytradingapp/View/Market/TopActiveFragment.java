@@ -92,7 +92,6 @@ public class TopActiveFragment extends Fragment implements OnListItemClickListen
         Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
 
 
-
         bundle.putString("ticker", stockArrayList.get(position).getTicker());
         bundle.putDouble("price",stockArrayList.get(position).getPrice());
         bundle.putDouble("changesPercentage",stockArrayList.get(position).getChangesPercentage());

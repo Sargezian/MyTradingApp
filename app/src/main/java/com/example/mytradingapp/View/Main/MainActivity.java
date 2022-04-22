@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.homeFragment,
-                R.id.newsFragment,R.id.searchFragment,R.id.marketFragment,R.id.settingsFragment, R.id.usaFragment
+                R.id.newsFragment,R.id.searchFragment,R.id.marketFragment, R.id.usaFragment
                  )
                 .build();
 

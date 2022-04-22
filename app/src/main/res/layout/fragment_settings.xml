@@ -13,7 +13,7 @@
         android:id="@+id/standard_bottom_sheet"
         style="?attr/bottomSheetStyle"
         android:layout_width="match_parent"
-        android:layout_height="897dp"
+        android:layout_height="499dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <!-- Bottom sheet contents. -->

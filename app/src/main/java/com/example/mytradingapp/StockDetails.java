@@ -18,7 +18,6 @@ import android.widget.Toolbar;
 public class StockDetails extends Fragment {
 
 
-
     private TextView textViewTicker;
     private TextView textViewPrice;
     private TextView textViewProcent;

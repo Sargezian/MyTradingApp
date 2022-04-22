@@ -7,6 +7,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface StockApi {
 
@@ -25,6 +26,10 @@ public interface StockApi {
     //StockNews
     @GET("api/v3/stock_news?limit=50&apikey=ea82a0933406160c3b57dfd366dda6d0")
     Call<List<News>>getStockNews();
+
+/*    //SearchedStock
+    @GET("api/v3/quote/{name}?apikey=ea82a0933406160c3b57dfd366dda6d0")
+    Call<PokemonResponse> getSearchedStock(@Path("name") String name);*/
 
 
 
