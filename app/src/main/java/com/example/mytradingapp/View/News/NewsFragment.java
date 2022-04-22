@@ -88,12 +88,12 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
 
         Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
 
+        Uri webpage = Uri.parse(newsArrayList.get(position).getUrl());
+        Intent webIntent = new Intent(Intent.ACTION_VIEW,webpage);
 
-        String action = Intent.ACTION_VIEW;
-        Uri uri = Uri.parse("google.com");
+        startActivity(webIntent);
 
-        Intent intent = new Intent(action, uri);
-        startActivity(intent);
+
     }
 
 }

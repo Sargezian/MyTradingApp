@@ -83,9 +83,8 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             price = itemView.findViewById(R.id.price);
             changesPercentage = itemView.findViewById(R.id.changesPercentage);
             companyName = itemView.findViewById(R.id.companyName);
-
-
         }
+
 
 
 
@@ -93,16 +92,18 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
             ticker.setText(stock.getTicker());
             price.setText(Double.toString(stock.getPrice()));
-            changesPercentage.setText(Double.toString(stock.getChangesPercentage()));
+            changesPercentage.setText(Double.toString(stock.getChangesPercentage()) + "%");
             companyName.setText(stock.getCompanyName());
             getChangesPercentage();
 
         }
 
         public void getChangesPercentage(){
-            if (Double.valueOf(changesPercentage.getText().toString()) < 0){
+           String s = changesPercentage.getText().toString();
+
+            if (Double.valueOf(changesPercentage.getText().toString().substring(0,s.length()-2)) < 0){
                 changesPercentage.setBackgroundResource(R.color.RED);
-            } else if (Double.valueOf(changesPercentage.getText().toString()) == 0){
+            } else if (Double.valueOf(changesPercentage.getText().toString().substring(0,s.length()-2)) == 0){
                 changesPercentage.setBackgroundResource(R.color.grey);
             }
             else {

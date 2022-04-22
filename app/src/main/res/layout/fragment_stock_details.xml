@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StockDetails"
+    android:orientation="vertical"
+    style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+    android:padding="10dp"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_ticker"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="AAPL"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:gravity="center|left"/>
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_baseline_star_border_24"
+            android:layout_gravity="center|right"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_baseline_share_24"
+            android:layout_gravity="center|right"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+       >
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="167,23"
+            android:textStyle="bold"
+            android:textSize="34sp"/>
+
+
+
+
+        <TextView
+            android:id="@+id/tv_procent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="-0.19 %"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="#FF0909"
+            android:layout_marginTop="8dp"/>
+
+
+    </LinearLayout>
+
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp" />
+
+
+</LinearLayout>

@@ -14,7 +14,7 @@
         android:id="@+id/newsFragment"
         android:name="com.example.mytradingapp.View.News.NewsFragment"
         android:label="News"
-        tools:layout="@layout/fragment_stock" />
+        tools:layout="@layout/fragment_news" />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.mytradingapp.View.Search.SearchFragment"
@@ -24,11 +24,24 @@
         android:id="@+id/marketFragment"
         android:name="com.example.mytradingapp.View.Market.MarketFragment"
         android:label="Market"
-        tools:layout="@layout/fragment_market" />
+        tools:layout="@layout/fragment_market" >
+        <action
+            android:id="@+id/action_marketFragment_to_stockDetails"
+            app:destination="@id/stockDetails" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.mytradingapp.View.Settings.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/stockDetails"
+        android:name="com.example.mytradingapp.StockDetails"
+        android:label="Apple Inc."
+        tools:layout="@layout/fragment_stock_details" >
+        <action
+            android:id="@+id/action_stockDetails_to_marketFragment"
+            app:destination="@id/marketFragment" />
+    </fragment>
 
 </navigation>
