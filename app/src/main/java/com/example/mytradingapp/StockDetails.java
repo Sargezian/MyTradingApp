@@ -8,11 +8,29 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
+
+import com.example.mytradingapp.API.ServiceGenerator;
+import com.example.mytradingapp.API.StockApi;
+import com.example.mytradingapp.Adapter.StockSparkAdapter;
+import com.example.mytradingapp.Shared.Transferobjects.Historical;
+import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
+import com.robinhood.spark.SparkView;
+import com.robinhood.spark.animation.SparkAnimator;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class StockDetails extends Fragment {
@@ -22,6 +40,10 @@ public class StockDetails extends Fragment {
     private TextView textViewPrice;
     private TextView textViewProcent;
     private Toolbar toolbar;
+    private List<Historical> historicalArrayList = new ArrayList<>();
+    private TextView textViewDate;
+    private SparkView sparkView;
+    private TextView closedPrice;
 
 
 
@@ -31,7 +53,9 @@ public class StockDetails extends Fragment {
         // Inflate the layout for this fragment
         View inflate = inflater.inflate(R.layout.fragment_stock_details, container, false);
 
+        sparkView = inflate.findViewById(R.id.sparkview);
         textViewTicker = inflate.findViewById(R.id.tv_ticker);
+        closedPrice = inflate.findViewById(R.id.tv_closed_price);
 
         textViewTicker.setText(getArguments().getString("ticker"));
 
@@ -45,14 +69,70 @@ public class StockDetails extends Fragment {
         textViewProcent = inflate.findViewById(R.id.tv_procent);
         textViewProcent.setText(Double.toString(getArguments().getDouble("changesPercentage")) + " %");
 
-
+           textViewDate = inflate.findViewById(R.id.tv_date);
         getChangesPercentage();
+
+
+        StockApi stockApi = ServiceGenerator.getStockApi();
+        Call<StockGraph> call = stockApi.getGraph(textViewTicker.getText().toString());
+
+        call.enqueue(new Callback<StockGraph>() {
+            @Override
+            public void onResponse(Call<StockGraph> call, Response<StockGraph> response) {
+                if (response.isSuccessful()){
+
+                    StockGraph body = response.body();
+                    List<Historical> historical = body.getHistorical();
+                    Collections.reverse(historical);
+
+                    sparkView.setScrubEnabled(true);
+                    sparkView.setScrubListener( t -> {
+
+                        if (t instanceof Historical){
+                            updateInfoForDate((Historical) t);
+                        }
+
+                    });
+
+
+
+                    historicalArrayList = historical;
+                    Log.e("test","det virker");
+                    updateDisplayWithData(historicalArrayList);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StockGraph> call, Throwable t) {
+                Log.e("Retrofit", "Something went wrong getting Stocks graphs :(" + t);
+            }
+        });
+
+
 
 
         return inflate;
     }
 
+    private void updateDisplayWithData(List<Historical> dailyData) {
 
+
+       StockSparkAdapter stockSparkAdapter = new StockSparkAdapter(dailyData);
+
+       sparkView.setAdapter(stockSparkAdapter);
+
+         updateInfoForDate(dailyData.get(dailyData.size()-1));
+
+    }
+
+    private void updateInfoForDate(Historical historical) {
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
+        textViewDate.setText(simpleDateFormat.format(historical.getDate()));
+        closedPrice.setText(Double.toString(historical.getClose()));
+
+    }
 
 
     public void getChangesPercentage(){

@@ -1,14 +1,21 @@
 package com.example.mytradingapp.Repository;
 
+import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.mytradingapp.API.ServiceGenerator;
 import com.example.mytradingapp.API.StockApi;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
+import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -21,12 +28,16 @@ public class StockRepository {
     private final MutableLiveData<List<Stock>> stockList;
     private final MutableLiveData<List<Stock>> stockList2;
     private final MutableLiveData<List<Stock>> stockList3;
+    private final MutableLiveData<List<StockGraph>> stockGraphList;
+
 
 
     public StockRepository() {
         stockList = new MutableLiveData<>();
         stockList2 = new MutableLiveData<>();
         stockList3 = new MutableLiveData<>();
+        stockGraphList = new MutableLiveData<>();
+
 
     }
 
@@ -119,6 +130,35 @@ public class StockRepository {
         });
 
         return stockList3;
+
+    }
+
+
+
+    public LiveData<List<StockGraph>>getStockGraph(String name){
+
+//        StockApi stockApi = ServiceGenerator.getStockApi();
+//        Call<List<StockGraph>> call = stockApi.getGraph(name);
+//
+//        call.enqueue(new Callback<List<StockGraph>>() {
+//            @Override
+//            public void onResponse(Call<List<StockGraph>> call, Response<List<StockGraph>> response) {
+//                   if (response.isSuccessful()){
+//
+//
+//                       List<StockGraph> body = response.body();
+//                       Collections.reverse(body);
+//                       stockGraphList.setValue(body);
+//                   }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<StockGraph>> call, Throwable t) {
+//                Log.e("Retrofit", "Something went wrong getting Stocks graphs :(" + t);
+//            }
+//        });
+
+        return stockGraphList;
 
     }
 
