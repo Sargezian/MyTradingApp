@@ -9,14 +9,14 @@
     tools:context=".View.Settings.SettingsFragment"
     style="@style/Widget.MaterialComponents.BottomNavigationView.Colored">
 
-    <FrameLayout
+<!--    <FrameLayout
         android:id="@+id/standard_bottom_sheet"
         style="?attr/bottomSheetStyle"
         android:layout_width="match_parent"
         android:layout_height="499dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-        <!-- Bottom sheet contents. -->
+        &lt;!&ndash; Bottom sheet contents. &ndash;&gt;
         <TextView
             android:layout_width="352dp"
             android:layout_height="181dp"
@@ -42,7 +42,7 @@
             android:textSize="20sp" />
 
 
-    </FrameLayout>
+    </FrameLayout>-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

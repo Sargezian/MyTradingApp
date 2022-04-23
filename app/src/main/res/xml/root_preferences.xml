@@ -1,4 +1,5 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Widget.MaterialComponents.BottomNavigationView.Colored">
 
     <PreferenceCategory
@@ -7,8 +8,12 @@
 
         <Preference
             app:key="login"
-            app:title="Login to you're trading account"/>
+            app:title="Login to you're trading account">
+            <intent
+                android:targetPackage="com.example.mytradingapp"
+                android:targetClass="com.example.mytradingapp.View.Login.LoginActivity"/>
 
+        </Preference>
 
     </PreferenceCategory>
 
@@ -23,14 +28,42 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:key="help_category"
+        app:key="@string/help_category"
         app:title="Help">
 
         <Preference
             app:key="feedback"
             app:summary="Report technical issues or suggest new features"
-            app:title="Send feedback"/>
+            app:title="Send feedback"
+            app:fragment="com.example.mytradingapp.View.ReportApp.ReportFragment"
+            />
 
     </PreferenceCategory>
 
+
+    <PreferenceCategory
+        app:key="linkedin_category"
+        app:title="Connect with Creators on Linkedin">
+
+        <Preference
+            app:key="connectWithLennart"
+            app:title="Lennart Sargezian">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.linkedin.com/in/lennart-sargezian-90164ab3/" />
+        </Preference>
+
+        <Preference
+            app:key="connectWithAbdullahi"
+            app:title="Abdullahi Isse">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.linkedin.com/in/abdullahi-isse-38032a231/" />
+
+        </Preference>
+    </PreferenceCategory>
+
+
 </PreferenceScreen>
+
+    <!--app:isPreferenceVisible="false"-->

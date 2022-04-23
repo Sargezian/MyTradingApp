@@ -33,5 +33,7 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
+    <string name="help_category">help_category</string>
+
 
 </resources>

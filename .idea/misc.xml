@@ -34,8 +34,10 @@
         <entry key="app/src/main/res/layout/fragment_market.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/layout/fragment_my_settings.xml" value="0.3066123188405797" />
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_report.xml" value="0.2621007283528646" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.1816123188405797" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_settings_view.xml" value="0.20572916666666666" />
         <entry key="app/src/main/res/layout/fragment_stock_view.xml" value="0.3066123188405797" />
         <entry key="app/src/main/res/layout/fragment_usa.xml" value="0.125" />
         <entry key="app/src/main/res/layout/news_item.xml" value="0.1" />

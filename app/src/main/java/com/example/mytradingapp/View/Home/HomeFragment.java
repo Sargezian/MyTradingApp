@@ -26,6 +26,7 @@ public class HomeFragment extends Fragment {
         button = view.findViewById(R.id.stockView);
         button.setOnClickListener(this::onClick);
 
+
         // Inflate the layout for this fragment
         return view;
     }
