@@ -18,11 +18,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:key="notifications_category"
-        app:title="Notifications">
+        app:key="theme_category"
+        app:title="Theme"
+        app:summary="Change to dark or light theme"
+        >
 
         <SwitchPreferenceCompat
-            app:key="notifications"
+            app:key="theme"
             app:title="Enable message notifications"/>
 
     </PreferenceCategory>

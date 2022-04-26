@@ -95,7 +95,6 @@ public class StockDetails extends Fragment {
                     });
 
 
-
                     historicalArrayList = historical;
                     Log.e("test","det virker");
                     updateDisplayWithData(historicalArrayList);
@@ -108,9 +107,6 @@ public class StockDetails extends Fragment {
                 Log.e("Retrofit", "Something went wrong getting Stocks graphs :(" + t);
             }
         });
-
-
-
 
         return inflate;
     }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.mytradingapp.Adapter.OnListItemClickListener;
 import com.example.mytradingapp.R;
@@ -34,11 +36,14 @@ public class TopLosersFragment extends Fragment implements OnListItemClickListen
 
     private final DecimalFormat df = new DecimalFormat("0.00");
 
+    private View inflate;
+    private Bundle bundle = new Bundle();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View inflate = inflater.inflate(R.layout.fragment_europe, container, false);
+        inflate = inflater.inflate(R.layout.fragment_europe, container, false);
 
         recyclerView = inflate.findViewById(R.id.rv_list2);
         progressBar = inflate.findViewById(R.id.progress_bar2);
@@ -84,6 +89,19 @@ public class TopLosersFragment extends Fragment implements OnListItemClickListen
 
     @Override
     public void onClick(int position) {
+
+        Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
+
+
+        bundle.putString("ticker", stockArrayList.get(position).getTicker());
+        bundle.putDouble("price",stockArrayList.get(position).getPrice());
+        bundle.putDouble("changesPercentage",stockArrayList.get(position).getChangesPercentage());
+        bundle.putString("companyName",stockArrayList.get(position).getCompanyName());
+
+
+        Navigation.findNavController(inflate).navigate(R.id.action_marketFragment_to_stockDetails,bundle);
+
+
 
     }
 }
