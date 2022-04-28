@@ -23,12 +23,9 @@ public class NewsRepository {
     private static NewsRepository instance;
     private final MutableLiveData<List<News>>stockNews;
 
-    private final MutableLiveData<List<News>> SpcNews;
-
-
     private NewsRepository() {
         stockNews = new MutableLiveData<>();
-        SpcNews = new MutableLiveData<>();
+
     }
 
     public static synchronized NewsRepository getInstance() {
@@ -66,10 +63,5 @@ public class NewsRepository {
     }
 
 
-    public LiveData<List<News>>getSpcNews(String name){
-
-        return SpcNews;
-
-    }
 
 }

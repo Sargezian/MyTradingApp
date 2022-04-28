@@ -35,9 +35,10 @@
         <entry key="app/src/main/res/layout/fragment_my_settings.xml" value="0.3066123188405797" />
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_report.xml" value="0.2621007283528646" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.20621337890625005" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.21326293945312494" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_settings_view.xml" value="0.20572916666666666" />
+        <entry key="app/src/main/res/layout/fragment_stock.xml" value="0.3088768115942029" />
         <entry key="app/src/main/res/layout/fragment_stock_details.xml" value="0.29483695652173914" />
         <entry key="app/src/main/res/layout/fragment_stock_view.xml" value="0.3066123188405797" />
         <entry key="app/src/main/res/layout/fragment_usa.xml" value="0.125" />

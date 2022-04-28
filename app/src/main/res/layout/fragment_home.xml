@@ -8,16 +8,6 @@
 
     >
 
-    <!-- TODO: Update blank fragment layout -->
-    <Button
-        android:id="@+id/stockView"
-        android:onClick="onClick"
-        android:layout_width="217dp"
-        android:layout_height="115dp"
-        android:text="StockView"
-        android:textSize="20sp"
-        android:layout_marginTop="175dp"
-        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

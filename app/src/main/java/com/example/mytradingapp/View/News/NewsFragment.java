@@ -90,7 +90,6 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
 
         startActivity(webIntent);
 
-
     }
 
 }

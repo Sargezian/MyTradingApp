@@ -8,19 +8,20 @@ public class StockSearch {
     private final String website;
     private final String description;
     private final String image;
+    private final double changes;
 
-
-    public StockSearch(double price, String companyName, String symbol, String website, String description, String image) {
+    public StockSearch(double price, String companyName, String symbol, String website, String description, String image, double changes) {
         this.price = price;
         this.companyName = companyName;
         this.symbol = symbol;
         this.website = website;
         this.description = description;
         this.image = image;
+        this.changes = changes;
     }
 
     public StockSearch getStock() {
-        return new StockSearch(price, companyName, symbol, website, description, image);
+        return new StockSearch(price, companyName, symbol, website, description, image, changes);
     }
 
     public String getCompanyName() {
@@ -44,5 +45,9 @@ public class StockSearch {
 
     public String getImage() {
         return image;
+    }
+
+    public double getChanges() {
+        return changes;
     }
 }
