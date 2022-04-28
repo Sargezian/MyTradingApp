@@ -32,13 +32,11 @@ import java.util.List;
 
 public class NewsFragment extends Fragment implements OnListItemClickListener {
 
-
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private ArrayList<News> newsArrayList = new ArrayList<>();
     private NewsViewModel newsViewModel;
     private NewsAdapter newsAdapter;
-
 
 
     @Override
@@ -62,7 +60,6 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
 
 
         getStockNews();
-
 
 
         return inflate;

@@ -11,6 +11,7 @@ import com.example.mytradingapp.API.ServiceGenerator;
 import com.example.mytradingapp.API.StockApi;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
+import com.example.mytradingapp.Shared.Transferobjects.StockSearch;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.internal.EverythingIsNonNull;
 
 public class StockRepository {
 
@@ -30,6 +32,7 @@ public class StockRepository {
     private final MutableLiveData<List<Stock>> stockList3;
     private final MutableLiveData<List<StockGraph>> stockGraphList;
 
+    private final MutableLiveData<StockSearch> searchedStock;
 
 
     public StockRepository() {
@@ -37,7 +40,7 @@ public class StockRepository {
         stockList2 = new MutableLiveData<>();
         stockList3 = new MutableLiveData<>();
         stockGraphList = new MutableLiveData<>();
-
+        searchedStock = new MutableLiveData<>();
 
     }
 
@@ -50,6 +53,9 @@ public class StockRepository {
         return instance;
     }
 
+    public LiveData<StockSearch> getSearchedStock() {
+        return searchedStock;
+    }
 
     public LiveData<List<Stock>> getStockList() {
         return stockList;
@@ -58,6 +64,30 @@ public class StockRepository {
     public MutableLiveData<List<Stock>> getStockList2() {
         return stockList2;
     }
+
+    public void searchForStock(String name) {
+        StockApi stockApi = ServiceGenerator.getStockApi();
+        Call<List<StockSearch>> call = stockApi.getStock(name);
+
+        call.enqueue(new Callback<List<StockSearch>>() {
+            @EverythingIsNonNull
+            @Override
+            public void onResponse(Call<List<StockSearch>> call, Response<List<StockSearch>> response) {
+
+                if (response.isSuccessful()) {
+                    searchedStock.setValue(response.body().get(0).getStock());
+
+                }
+            }
+
+            @EverythingIsNonNull
+            @Override
+            public void onFailure(Call<List<StockSearch>> call, Throwable t) {
+                Log.i("Retrofit", t.getMessage());
+            }
+        });
+    }
+
 
     public LiveData<List<Stock>> getActiveStocks(){
         StockApi stockApi = ServiceGenerator.getStockApi();

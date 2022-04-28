@@ -3,6 +3,7 @@ package com.example.mytradingapp.API;
 import com.example.mytradingapp.Shared.Transferobjects.News;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
+import com.example.mytradingapp.Shared.Transferobjects.StockSearch;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -29,14 +30,21 @@ public interface StockApi {
     @GET("api/v3/gainers?apikey=ea82a0933406160c3b57dfd366dda6d0")
     Call<List<Stock>>getGainersStock();
 
-    //StockNews
+    //GetLatestStockNews
     @GET("api/v3/stock_news?limit=50&apikey=ea82a0933406160c3b57dfd366dda6d0")
     Call<List<News>>getStockNews();
 
-
+    //getGraphdata
     @GET("api/v3/historical-price-full/{name}?apikey=ea82a0933406160c3b57dfd366dda6d0")
     Call<StockGraph>getGraph(@Path("name") String name);
 
+    //getSpecificNews
+    @GET("api/v3/stock_news?tickers={name}&limit=100&apikey=ea82a0933406160c3b57dfd366dda6d0")
+    Call<News>getNews(@Path("name") String name);
+
+    //SearchedStock
+    @GET("api/v3/quote/{name}?apikey=ea82a0933406160c3b57dfd366dda6d0")
+    Call<List<StockSearch>> getStock(@Path("name") String name);
 
 
 }

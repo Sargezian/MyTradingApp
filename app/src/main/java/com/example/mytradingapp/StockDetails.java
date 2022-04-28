@@ -34,8 +34,7 @@ import retrofit2.Response;
 
 
 public class StockDetails extends Fragment {
-
-
+    
     private TextView textViewTicker;
     private TextView textViewPrice;
     private TextView textViewProcent;
@@ -44,7 +43,6 @@ public class StockDetails extends Fragment {
     private TextView textViewDate;
     private SparkView sparkView;
     private TextView closedPrice;
-
 
 
     @Override

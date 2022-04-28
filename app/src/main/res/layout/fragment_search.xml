@@ -5,14 +5,33 @@
     android:layout_height="match_parent"
     tools:context=".View.Search.SearchFragment"
     style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
-
   >
-
 
     <!-- TODO: Update blank fragment layout -->
 
-    <SearchView
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="285dp"
+        android:onClick="searchForStock"
+        android:text="Search"
+        tools:ignore="OnClick"
+        />
+
+    <TextView
+        android:id="@+id/tekst"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="200dp"
+        />
+
 
 </FrameLayout>

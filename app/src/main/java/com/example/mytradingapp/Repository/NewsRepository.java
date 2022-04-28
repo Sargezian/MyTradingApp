@@ -9,6 +9,7 @@ import com.example.mytradingapp.API.ServiceGenerator;
 import com.example.mytradingapp.API.StockApi;
 import com.example.mytradingapp.Shared.Transferobjects.News;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
+import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
 
 import java.util.List;
 
@@ -22,9 +23,12 @@ public class NewsRepository {
     private static NewsRepository instance;
     private final MutableLiveData<List<News>>stockNews;
 
+    private final MutableLiveData<List<News>> SpcNews;
+
 
     private NewsRepository() {
         stockNews = new MutableLiveData<>();
+        SpcNews = new MutableLiveData<>();
     }
 
     public static synchronized NewsRepository getInstance() {
@@ -59,6 +63,13 @@ public class NewsRepository {
      }
         });
         return stockNews;
+    }
+
+
+    public LiveData<List<News>>getSpcNews(String name){
+
+        return SpcNews;
+
     }
 
 }

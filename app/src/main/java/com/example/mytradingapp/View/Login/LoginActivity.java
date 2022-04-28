@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         button.setOnClickListener(this::retrieveDataFromInternet);
 
         viewModel = new ViewModelProvider(this).get(LoginActivityViewModel.class);
+
         viewModel.getMessage().observe(this, message -> loginText.setText(message));
 
         viewModel.isLoading().observe(this, isLoading -> {
