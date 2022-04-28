@@ -10,9 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SearchView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.mytradingapp.R;
 
 
@@ -21,7 +22,13 @@ public class SearchFragment extends Fragment {
 
     private EditText editText;
     private SearchViewModel viewModel;
-    private TextView textView;
+    private TextView companyName;
+    private TextView stockPrice;
+    private TextView tickerName;
+    private TextView Website;
+    private TextView description;
+    private ImageView companyLogo;
+
 
     private Button button;
 
@@ -33,7 +40,14 @@ public class SearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         editText = view.findViewById(R.id.editText);
-        textView = view.findViewById(R.id.tekst);
+        companyName = view.findViewById(R.id.companyName);
+        stockPrice = view.findViewById(R.id.StockPrice);
+        tickerName = view.findViewById(R.id.tickerName);
+        Website = view.findViewById(R.id.Website);
+        description = view.findViewById(R.id.description);
+        companyLogo = view.findViewById(R.id.companyLogo);
+
+
 
         button = view.findViewById(R.id.button);
 
@@ -41,7 +55,13 @@ public class SearchFragment extends Fragment {
 
         viewModel.getSearchedStock().observe(getViewLifecycleOwner(),stock -> {
 
-            textView.setText(stock.getName());
+            tickerName.setText(stock.getSymbol());
+            companyName.setText(stock.getCompanyName());
+            stockPrice.setText(Double.toString(stock.getPrice()));
+            Website.setText(stock.getWebsite());
+            description.setText(stock.getDescription());
+            Glide.with(this).load(stock.getImage()).into(companyLogo);
+
 
         });
 
@@ -53,7 +73,7 @@ public class SearchFragment extends Fragment {
 
     public void searchForStock(View view) {
         viewModel.searchForStock(editText.getText().toString());
-        textView.setText("");
+        companyName.setText("");
 
     }
 

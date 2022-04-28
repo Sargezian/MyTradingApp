@@ -3,21 +3,28 @@ package com.example.mytradingapp.Shared.Transferobjects;
 public class StockSearch {
 
     private final double price;
-    private final String name;
+    private final String companyName;
     private final String symbol;
+    private final String website;
+    private final String description;
+    private final String image;
 
-    public StockSearch(double price, String name, String symbol) {
+
+    public StockSearch(double price, String companyName, String symbol, String website, String description, String image) {
         this.price = price;
-        this.name = name;
+        this.companyName = companyName;
         this.symbol = symbol;
+        this.website = website;
+        this.description = description;
+        this.image = image;
     }
 
     public StockSearch getStock() {
-        return new StockSearch(price, name, symbol);
+        return new StockSearch(price, companyName, symbol, website, description, image);
     }
 
-    public String getName() {
-        return name;
+    public String getCompanyName() {
+        return companyName;
     }
     public double getPrice() {
         return price;
@@ -27,5 +34,15 @@ public class StockSearch {
     }
 
 
+    public String getWebsite() {
+        return website;
+    }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public String getImage() {
+        return image;
+    }
 }

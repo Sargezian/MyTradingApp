@@ -43,8 +43,9 @@ public interface StockApi {
     Call<News>getNews(@Path("name") String name);
 
     //SearchedStock
-    @GET("api/v3/quote/{name}?apikey=ea82a0933406160c3b57dfd366dda6d0")
-    Call<List<StockSearch>> getStock(@Path("name") String name);
+    @GET("api/v3/profile/{companyName}?apikey=ea82a0933406160c3b57dfd366dda6d0")
+    Call<List<StockSearch>> getStock(@Path("companyName") String companyName);
+
 
 
 }

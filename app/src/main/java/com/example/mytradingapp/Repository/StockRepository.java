@@ -65,9 +65,9 @@ public class StockRepository {
         return stockList2;
     }
 
-    public void searchForStock(String name) {
+    public void searchForStock(String companyName) {
         StockApi stockApi = ServiceGenerator.getStockApi();
-        Call<List<StockSearch>> call = stockApi.getStock(name);
+        Call<List<StockSearch>> call = stockApi.getStock(companyName);
 
         call.enqueue(new Callback<List<StockSearch>>() {
             @EverythingIsNonNull

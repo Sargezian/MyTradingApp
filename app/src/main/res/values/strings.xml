@@ -35,5 +35,8 @@
 
     <string name="help_category">help_category</string>
 
+    <string name="search_hint">Enter tickerName</string>
+
+
 
 </resources>
