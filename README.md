@@ -4,7 +4,7 @@ MyTradingApp provides a graphical way to display stock data, which includes pric
 
 My motivation behind the creation of this app, is that i have got tired of stock apps that are to complex and has a ugly UI-design. 
 
-The goal of this app is to be as user friendly and simple and have a nice mordern UI design. 
+The goal of this app is to be as user friendly as possible and have a nice mordern UI design. 
 
 # Prioritized requirements
 
