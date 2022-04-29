@@ -30,4 +30,10 @@ The goal of this app is to be as user friendly as possible and have a nice morde
 
 
 ### MyTradingApp:
-![app/StockImg.png](app/StockImg.png)
+![app/stockTopActive.png](app/stockTopActive.png)
+
+![app/graphStock.png](app/graphStock.png)
+
+![app/stockNews.png](app/stockNews.png)
+
+![app/stockSearch.png](app/stockSearch.png)
