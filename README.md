@@ -18,16 +18,16 @@ The goal of this app is to be as user friendly and simple as possible.
 - [ ] As a user, i want to be able to remove a stock from my personal watchlist, such that i can unfollow a stock that i am not interested in. 
 - [x] As a user, i want to be able to have a Trending tickers page, such that i can gain an inside of which stocks are up-trending or down-trending for the specific day. 
 - [x] As a user, i want to be able to have a News page, such that i can collect important news about todays market. 
-- [ ] As a user, i want to be able to signup, login and signout, such that i can login to my personal stock account.  
-
+ 
 ### Medium:
-- [ ] As a user, i want to be able to see a others users watchlist such that I can gain a inside of other users prefered stocks. 
-- [ ] As a user, i want to be able to search and see a list of users, so that i can gain an inside of theirs account.  
+- [x] As a user, i want to be able to have a settings page, such that i can personalize my account by my needs.
+- [ ] As a user, i want to be able to signup, login and signout, such that i can login to my personal stock account. 
 
 ### Low:
 - [ ] As a user, i want to be able to share a stock to a friend by email. 
-- [x] As a user, i want to be able to have a settings page, such that i can personalize my account by my needs.
-- [ ] As a user, i want to be able to signup and login with a google account
+- [ ] As a user, i want to be able to see a others users watchlist such that I can gain a inside of other users prefered stocks. 
+- [ ] As a user, i want to be able to search and see a list of users, so that i can gain an inside of theirs account.  
+
 
 ### MyTradingApp:
 ![app/StockImg.png](app/StockImg.png)
