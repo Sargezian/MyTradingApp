@@ -63,8 +63,10 @@ dependencies {
     implementation 'com.robinhood.spark:spark:1.2.0'
 
 
-    //Firebase
-/*    implementation 'com.google.firebase:firebase-admin:8.1.0'*/
+    //firebase
+    implementation 'com.google.firebase:firebase-auth:21.0.3'
+
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
 
 
 
