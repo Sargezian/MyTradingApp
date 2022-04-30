@@ -9,9 +9,6 @@
         <Preference
             app:key="login"
             app:title="Login to you're trading account">
-            <intent
-                android:targetPackage="com.example.mytradingapp"
-                android:targetClass="com.example.mytradingapp.View.Login.LoginActivity"/>
 
         </Preference>
 
