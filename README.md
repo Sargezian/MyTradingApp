@@ -21,7 +21,7 @@ The goal of this app is to be as user friendly as possible and have a nice morde
  
 ### Medium:
 - [x] As a user, i want to be able to have a settings page, such that i can personalize my account by my needs.
-- [ ] As a user, i want to be able to signup, login and signout, such that i can login to my personal stock account. 
+- [x] As a user, i want to be able to signup, login and signout, such that i can login to my personal stock account. 
 
 ### Low:
 - [ ] As a user, i want to be able to share a stock to a friend by email. 
