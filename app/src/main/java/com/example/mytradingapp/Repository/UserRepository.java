@@ -24,9 +24,9 @@ public class UserRepository {
         return instance;
     }
 
-    public LiveData<FirebaseUser> getCurrentUser() {
-        return currentUser;
-    }
+//    public LiveData<FirebaseUser> getCurrentUser() {
+//        return currentUser;
+//    }
 
     public void signOut() {
         AuthUI.getInstance()

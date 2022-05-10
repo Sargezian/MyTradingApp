@@ -52,7 +52,7 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(inflate.getContext()));
         recyclerView.hasFixedSize();
 
-        newsAdapter = new NewsAdapter(newsArrayList,this);
+        newsAdapter = new NewsAdapter(newsArrayList,this,inflate.getContext());
 
         recyclerView.setAdapter(newsAdapter);
 
@@ -73,6 +73,7 @@ public class NewsFragment extends Fragment implements OnListItemClickListener {
 
                 progressBar.setVisibility(View.GONE);
                 List<News> stocknews = newsResponse;
+                newsArrayList.clear();
                 newsArrayList.addAll(stocknews);
 
             }

@@ -64,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void checkIfSignedIn() {
-        userviewModel.getCurrentUser().observe(this, user -> {
-            if (user != null) {
-                String message = "Welcome " + user.getDisplayName();
-                /*welcomeMessage.setText(message);*/
-            } else
-                startLoginActivity();
-        });
+//        userviewModel.getCurrentUser().observe(this, user -> {
+//            if (user != null) {
+//                String message = "Welcome " + user.getDisplayName();
+//                /*welcomeMessage.setText(message);*/
+//            } else
+//                startLoginActivity();
+//        });
     }
 
     private void startLoginActivity() {

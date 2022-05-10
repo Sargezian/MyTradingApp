@@ -77,6 +77,7 @@ public class TopLosersFragment extends Fragment implements OnListItemClickListen
 
                     stock.setChangesPercentage(Double.parseDouble(df.format(stock.getChangesPercentage())));
                 }
+
                 stockArrayList.addAll(stockList);
 
                 stockTitleAdapter.notifyDataSetChanged();

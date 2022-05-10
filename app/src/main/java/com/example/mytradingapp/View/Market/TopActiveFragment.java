@@ -67,7 +67,7 @@ public class TopActiveFragment extends Fragment implements OnListItemClickListen
 
     private void getActiveStocks() {
         df.setRoundingMode(RoundingMode.HALF_UP);
-    topactiveViewmodel.getActiveStockLiveData().observe(getViewLifecycleOwner(), stockResponse -> {
+        topactiveViewmodel.getActiveStockLiveData().observe(getViewLifecycleOwner(), stockResponse -> {
         if (stockResponse != null && !stockResponse.isEmpty()){
 
             progressBar.setVisibility(View.GONE);
@@ -76,6 +76,7 @@ public class TopActiveFragment extends Fragment implements OnListItemClickListen
 
                 stock.setChangesPercentage(Double.parseDouble(df.format(stock.getChangesPercentage())));
             }
+            stockArrayList.clear();
             stockArrayList.addAll(stocks);
 
             stockTitleAdapter.notifyDataSetChanged();

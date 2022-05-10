@@ -58,8 +58,6 @@ public class StockDetails extends Fragment {
         textViewTicker.setText(getArguments().getString("ticker"));
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getArguments().getString("companyName"));
-
-
         textViewPrice = inflate.findViewById(R.id.tv_price);
 
         textViewPrice.setText(Double.toString(getArguments().getDouble("price")));
@@ -89,7 +87,6 @@ public class StockDetails extends Fragment {
                         if (t instanceof Historical){
                             updateInfoForDate((Historical) t);
                         }
-
                     });
 
 

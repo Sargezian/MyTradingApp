@@ -72,7 +72,7 @@ public class TopGainersFragment extends Fragment implements OnListItemClickListe
 
                     stock.setChangesPercentage(Double.parseDouble(df.format(stock.getChangesPercentage())));
                 }
-
+                 stockArrayList.clear();
                 stockArrayList.addAll(stockList);
 
                 stockTitleAdapter.notifyDataSetChanged();

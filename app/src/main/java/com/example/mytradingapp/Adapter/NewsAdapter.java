@@ -1,6 +1,7 @@
 package com.example.mytradingapp.Adapter;
 
-import android.util.Log;
+import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,40 +17,42 @@ import com.example.mytradingapp.Shared.Transferobjects.News;
 
 import java.util.ArrayList;
 
-public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements OnListItemClickListener {
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> implements OnListItemClickListener {
 
     private ArrayList<News> news;
     OnListItemClickListener listener;
+    Context context;
 
 
-    public NewsAdapter(ArrayList<News> news, OnListItemClickListener listener) {
+    public NewsAdapter(ArrayList<News> news, OnListItemClickListener listener,Context context) {
         this.news = news;
         this.listener = listener;
+        this.context = context;
     }
 
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item,parent,false);
+        NewsViewHolder holder = new NewsViewHolder(view);
 
-        return new NewsViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(
-                        R.layout.news_item,
-                        parent,
-                        false
-                )
-        );
+        return holder;
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
 
-        News newss = (News) news.get(position);
-
-        ((NewsAdapter.NewsViewHolder)holder).setNews(newss);
+      holder.title.setText(news.get(position).getTitle());
+      holder.text.setText(news.get(position).getText());
+      holder.symbol.setText(news.get(position).getSymbol());
+      holder.publishedDate.setText(news.get(position).getPublishedDate());
+      Glide.with(this.context).load(news.get(position).getImage()).into(holder.image);
 
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -64,13 +67,11 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
     public class NewsViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView symbol;
-        private TextView publishedDate;
-        private TextView title;
-        private TextView text;
-        private ImageView image;
-
-
+         TextView symbol;
+         TextView publishedDate;
+         TextView title;
+         TextView text;
+         ImageView image;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -86,18 +87,6 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             title = itemView.findViewById(R.id.title);
             text = itemView.findViewById(R.id.text);
             image = itemView.findViewById(R.id.imageView);
-
-
-        }
-
-        public void setNews(News news){
-
-            symbol.setText(news.getSymbol());
-            publishedDate.setText(news.getPublishedDate());
-            title.setText(news.getTitle());
-            text.setText(news.getText());
-
-            Glide.with(image.getContext()).load(news.getImage()).into(image);
 
 
         }

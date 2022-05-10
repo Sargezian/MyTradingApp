@@ -37,10 +37,10 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void checkIfSignedIn() {
-        viewModel.getCurrentUser().observe(this, user -> {
-            if (user != null)
-                goToMainActivity();
-        });
+//        viewModel.getCurrentUser().observe(this, user -> {
+//            if (user != null)
+//                goToMainActivity();
+//        });
     }
 
     private void goToMainActivity() {

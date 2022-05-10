@@ -28,13 +28,9 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bNav"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="6"
-        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+        android:layout_height="wrap_content"
         app:menu="@menu/bottom_nav_menu"
-        app:itemRippleColor="@color/purple_200"
-        app:itemIconSize="30dp"
-
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
         />
 
 
