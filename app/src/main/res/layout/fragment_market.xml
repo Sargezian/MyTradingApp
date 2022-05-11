@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         app:tabRippleColor="@color/purple_200"
         app:tabSelectedTextColor="@color/purple_200"
+        app:tabTextColor="@color/white"
         style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
 
 
