@@ -15,7 +15,10 @@ import android.view.View;
 import com.example.mytradingapp.R;
 
 import com.example.mytradingapp.View.FireBaseSignUp.SignInActivity;
+import com.example.mytradingapp.View.Login.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,12 +29,15 @@ public class MainActivity extends AppCompatActivity {
     AppBarConfiguration appBarConfiguration;
 
     private MainActivityViewModel userviewModel;
+    private FirebaseAuth firebaseAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         toolbar = findViewById(R.id.toolbar);
         bottomNavigationView = findViewById(R.id.bNav);
@@ -52,8 +58,12 @@ public class MainActivity extends AppCompatActivity {
 
         userviewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
         /*        userviewModel.init();*/
-        checkIfSignedIn();
 
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if (user == null){
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
 
     }
 
@@ -63,15 +73,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void checkIfSignedIn() {
-//        userviewModel.getCurrentUser().observe(this, user -> {
-//            if (user != null) {
-//                String message = "Welcome " + user.getDisplayName();
-//                /*welcomeMessage.setText(message);*/
-//            } else
-//                startLoginActivity();
-//        });
-    }
 
     private void startLoginActivity() {
         startActivity(new Intent(this, SignInActivity.class));

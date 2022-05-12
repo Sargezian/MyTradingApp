@@ -86,7 +86,7 @@
                     android:id="@+id/et_username_sign_in"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Username"
+                    android:hint="E-mail"
                     android:inputType="textCapWords"
                     android:textColor="#363A43"
                     android:textColorHint="#7A8089"
@@ -130,17 +130,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <TextView
-                android:id="@+id/tv_error_sign_in"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text=""
-                android:textColor="#DB041E"
-                android:textStyle="bold"
-
-
-                />
 
 
             <Button
@@ -168,7 +157,6 @@
                 android:id="@+id/btn_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
                 android:text="Sign up"
@@ -195,14 +183,15 @@
         android:textStyle="bold" />
 
 
-    <com.shobhitpuri.custombuttons.GoogleSignInButton
+    <com.google.android.gms.common.SignInButton
         android:id="@+id/google_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:text="@string/google_sign_in"
         app:isDarkTheme="false" />
+
+
 
 </LinearLayout>
