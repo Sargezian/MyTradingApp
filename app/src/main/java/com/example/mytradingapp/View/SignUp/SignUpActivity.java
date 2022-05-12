@@ -17,9 +17,9 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        Button button = findViewById(R.id.buttonBack);
 
-        button.setOnClickListener(this::Back);
+
+
     }
 
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "712097132236",
+    "project_id": "mytradingapp-d2411",
+    "storage_bucket": "mytradingapp-d2411.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712097132236:android:cdb2b0a1da4be914bc9c69",
+        "android_client_info": {
+          "package_name": "com.example.mytradingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712097132236-h67ai7qi8itp4chmsemlbvv2bio4ogo5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfj2XpP_v5oF6jzwjvbWtJbcaPc70SmG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712097132236-h67ai7qi8itp4chmsemlbvv2bio4ogo5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

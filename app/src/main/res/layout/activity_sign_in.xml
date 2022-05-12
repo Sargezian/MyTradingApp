@@ -24,13 +24,13 @@
         android:textStyle="bold" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         app:cardCornerRadius="8dp"
-
-
+        app:cardBackgroundColor="@color/white"
         >
 
 
@@ -65,17 +65,32 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp">
+                android:layout_marginTop="14dp"
+               android:textColorHint="@color/black"
+                app:prefixTextColor="@color/black"
+                app:placeholderTextColor="@color/black"
+                app:counterOverflowTextColor="@color/black"
+                app:counterTextColor="@color/black"
+               app:boxStrokeColor="@color/black"
+                app:boxStrokeErrorColor="@color/black"
+                app:errorTextColor="@color/black"
+                app:helperTextTextColor="@color/black"
+                app:hintTextColor="@color/black"
+                app:suffixTextColor="@color/black"
+
+
+                >
 
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_username"
+                    android:id="@+id/et_username_sign_in"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Username"
                     android:inputType="textCapWords"
                     android:textColor="#363A43"
                     android:textColorHint="#7A8089"
+
 
                     />
 
@@ -86,11 +101,22 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp">
+                android:layout_marginTop="14dp"
+                android:textColorHint="@color/black"
+                app:prefixTextColor="@color/black"
+                app:placeholderTextColor="@color/black"
+                app:counterOverflowTextColor="@color/black"
+                app:counterTextColor="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeErrorColor="@color/black"
+                app:errorTextColor="@color/black"
+                app:helperTextTextColor="@color/black"
+                app:hintTextColor="@color/black"
+                app:suffixTextColor="@color/black">
 
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_password"
+                    android:id="@+id/et_password_sign_in"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
@@ -105,7 +131,7 @@
 
 
             <TextView
-                android:id="@+id/tv_error"
+                android:id="@+id/tv_error_sign_in"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -122,11 +148,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:text="Login"
-                android:textSize="15sp"
-
-
-                />
+                android:text="Sign in"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -173,6 +196,7 @@
 
 
     <com.shobhitpuri.custombuttons.GoogleSignInButton
+        android:id="@+id/google_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
