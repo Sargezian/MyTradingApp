@@ -2,6 +2,7 @@ package com.example.mytradingapp.Repository;
 
 import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
@@ -65,7 +66,7 @@ public class StockRepository {
         return stockList2;
     }
 
-    public void searchForStock(String companyName) {
+    public LiveData<StockSearch> searchForStock(String companyName) {
         StockApi stockApi = ServiceGenerator.getStockApi();
         Call<List<StockSearch>> call = stockApi.getStock(companyName);
 
@@ -75,7 +76,13 @@ public class StockRepository {
             public void onResponse(Call<List<StockSearch>> call, Response<List<StockSearch>> response) {
 
                 if (response.isSuccessful()) {
-                    searchedStock.setValue(response.body().get(0).getStock());
+
+                    if (!response.body().isEmpty()){
+                        searchedStock.setValue(response.body().get(0).getStock());
+                    } else {
+                        Log.e("retrofit","something went wrong");
+                    }
+
 
                 }
             }
@@ -86,6 +93,8 @@ public class StockRepository {
                 Log.i("Retrofit", t.getMessage());
             }
         });
+
+        return searchedStock;
     }
 
 

@@ -1,5 +1,7 @@
 package com.example.mytradingapp.View.Search;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -15,11 +17,15 @@ public class SearchViewModel extends ViewModel {
     }
 
     LiveData<StockSearch> getSearchedStock() {
-        return repository.getSearchedStock();
+        LiveData<StockSearch> searchedStock = repository.getSearchedStock();
+
+        return searchedStock;
     }
 
-    public void searchForStock(String s) {
-        repository.searchForStock(s);
+    public  LiveData<StockSearch> searchForStock(String s) {
+        LiveData<StockSearch> stockSearchLiveData = repository.searchForStock(s);
+
+        return stockSearchLiveData;
     }
 
 
