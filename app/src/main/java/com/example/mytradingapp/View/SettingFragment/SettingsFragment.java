@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
@@ -11,10 +12,15 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.example.mytradingapp.R;
 import com.example.mytradingapp.View.Main.MainActivityViewModel;
 import com.example.mytradingapp.View.ReportApp.ReportFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 
     private MainActivityViewModel userviewModel;
+
+    private FirebaseAuth firebaseAuth;
+    private MainActivityViewModel viewModel;
 
  //
     @Override
@@ -25,13 +31,27 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         help_categoryPreference.setOnPreferenceClickListener(this::onClickReport);
 
-/*        Preference signOutPreference = findPreference("login");
+        Preference signOutPreference = findPreference("signout");
 
-        signOutPreference.setOnPreferenceClickListener(this::signOut);*/
+        signOutPreference.setOnPreferenceClickListener(this::signOut);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+
+        EditTextPreference emailPreference = findPreference("email");
+
+        if (firebaseUser != null) {
+            emailPreference.setText(firebaseUser.getEmail());
+
+        }
 
     }
 
-
+    private boolean signOut(Preference preference) {
+        viewModel.signOut();
+        return true;
+    }
 
 
 
@@ -41,7 +61,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         fr.commit();
         return true;
     }
-
 
 
 }

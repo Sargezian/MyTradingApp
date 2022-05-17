@@ -3,27 +3,13 @@
     style="@style/Widget.MaterialComponents.BottomNavigationView.Colored">
 
     <PreferenceCategory
-        app:key="login_category"
-        app:title="Login">
-
-        <Preference
-            app:key="login"
-            app:title="Login to you're trading account">
-
-        </Preference>
-
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        app:key="theme_category"
-        app:title="Theme"
-        app:summary="Change to dark or light theme"
+        app:key="user_information"
+        app:title="User Information"
         >
 
-        <SwitchPreferenceCompat
-            app:key="theme"
-            app:title="Enable message notifications"/>
+        <EditTextPreference
+            app:key="email"
+            app:title="Your email"/>
 
     </PreferenceCategory>
 
@@ -61,6 +47,18 @@
                 android:data="https://www.linkedin.com/in/abdullahi-isse-38032a231/" />
 
         </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="login_category"
+        app:title="Signout">
+
+        <Preference
+            app:key="signout"
+            app:title="Signout from you're trading account">
+
+        </Preference>
+
     </PreferenceCategory>
 
 
