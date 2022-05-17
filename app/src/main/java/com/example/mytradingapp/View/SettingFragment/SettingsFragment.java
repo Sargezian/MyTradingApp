@@ -31,10 +31,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     }
 
-    /*private boolean signOut(Preference preference) {
-        userviewModel.signOut();
-        return true;
-    }*/
+
 
 
 
