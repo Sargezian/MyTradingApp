@@ -29,13 +29,13 @@
             android:gravity="center|left"/>
 
 
-        <ImageView
+        <CheckBox android:id="@+id/star"
+            style="?android:attr/starStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:src="@drawable/ic_baseline_star_border_24"
-            android:layout_gravity="center|right"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+            android:checked="false"
+            />
 
 
         <ImageView

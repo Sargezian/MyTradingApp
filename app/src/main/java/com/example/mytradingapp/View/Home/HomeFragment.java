@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mytradingapp.Adapter.OnListItemClickListener;
 import com.example.mytradingapp.Adapter.StockTitleAdapter;
@@ -38,13 +42,17 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
     private StockTitleAdapter stockTitleAdapter;
     private RecyclerView recyclerView;
     private final DecimalFormat df = new DecimalFormat("0.00");
+    private HomeFragmentViewModel homeFragmentViewModel;
+    private Bundle bundle = new Bundle();
+    private  View view;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+         view = inflater.inflate(R.layout.fragment_home, container, false);
+        homeFragmentViewModel = new ViewModelProvider(this).get(HomeFragmentViewModel.class);
+        homeFragmentViewModel.init();
         recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.hasFixedSize();
@@ -59,8 +67,18 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
     }
 
     private void getGainersStock() {
-        df.setRoundingMode(RoundingMode.HALF_UP);
+        homeFragmentViewModel.getMessage().observe(getViewLifecycleOwner(), stock -> {
+            if (stock != null){
+                List<Stock> stockList = stock;
+                stockArrayList.clear();
+                stockArrayList.addAll(stockList);
 
+
+                stockTitleAdapter.notifyDataSetChanged();
+
+            }
+
+        });
 
     }
 
@@ -69,6 +87,15 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
 
     @Override
     public void onClick(int position) {
+        Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
 
+
+        bundle.putString("ticker", stockArrayList.get(position).getTicker());
+        bundle.putDouble("price",stockArrayList.get(position).getPrice());
+        bundle.putDouble("changesPercentage",stockArrayList.get(position).getChangesPercentage());
+        bundle.putString("companyName",stockArrayList.get(position).getCompanyName());
+
+
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_stockDetails,bundle);
     }
 }

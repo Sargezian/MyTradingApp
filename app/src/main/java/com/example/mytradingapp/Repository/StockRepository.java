@@ -13,6 +13,9 @@ import com.example.mytradingapp.API.StockApi;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
 import com.example.mytradingapp.Shared.Transferobjects.StockSearch;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -35,6 +38,9 @@ public class StockRepository {
 
     private final MutableLiveData<StockSearch> searchedStock;
 
+    private DatabaseReference databaseReference;
+    private StockLiveData stockLiveData;
+
 
     public StockRepository() {
         stockList = new MutableLiveData<>();
@@ -52,6 +58,27 @@ public class StockRepository {
         }
 
         return instance;
+    }
+
+    public void init (){
+
+        databaseReference =  FirebaseDatabase.getInstance("https://mytradingapp-d2411-default-rtdb.europe-west1.firebasedatabase.app/").getReference("stock")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        stockLiveData = new StockLiveData(databaseReference);
+    }
+
+    public void saveStock(Stock stock){
+        databaseReference.push().setValue(stock);
+
+    }
+
+    public void deleteStock(){
+        databaseReference.push().removeValue();
+
+    }
+
+    public StockLiveData getSavedStock(){
+        return stockLiveData;
     }
 
     public LiveData<StockSearch> getSearchedStock() {

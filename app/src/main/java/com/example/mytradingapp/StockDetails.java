@@ -1,28 +1,36 @@
 package com.example.mytradingapp;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.mytradingapp.API.ServiceGenerator;
 import com.example.mytradingapp.API.StockApi;
 import com.example.mytradingapp.Adapter.StockSparkAdapter;
 import com.example.mytradingapp.Shared.Transferobjects.Historical;
+import com.example.mytradingapp.Shared.Transferobjects.Stock;
 import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
+import com.example.mytradingapp.View.Home.HomeFragmentViewModel;
+import com.example.mytradingapp.View.SignUp.SignUpActivity;
+import com.google.firebase.database.FirebaseDatabase;
 import com.robinhood.spark.SparkView;
 import com.robinhood.spark.animation.SparkAnimator;
 
@@ -46,6 +54,8 @@ public class StockDetails extends Fragment {
     private TextView textViewDate;
     private SparkView sparkView;
     private TextView closedPrice;
+    private CheckBox star;
+    private HomeFragmentViewModel homeFragmentViewModel;
 
 
     @Override
@@ -57,6 +67,8 @@ public class StockDetails extends Fragment {
         sparkView = inflate.findViewById(R.id.sparkview);
         textViewTicker = inflate.findViewById(R.id.tv_ticker);
         closedPrice = inflate.findViewById(R.id.tv_closed_price);
+        star = inflate.findViewById(R.id.star);
+        homeFragmentViewModel = new ViewModelProvider(this).get(HomeFragmentViewModel.class);
 
         textViewTicker.setText(getArguments().getString("ticker"));
 
@@ -106,16 +118,21 @@ public class StockDetails extends Fragment {
             }
         });
 
-
-
-        ImageView sendStockDetails = inflate.findViewById(R.id.share);
-
-        sendStockDetails.setOnClickListener(this::ShareToFriend);
-
-
-
+        star.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (star.isChecked()){
+                    homeFragmentViewModel.saveStock(new Stock(getArguments().getString("ticker"),getArguments().getDouble("price"),getArguments().getDouble("changesPercentage"), getArguments().getString("companyName")));
+                } else {
+                    homeFragmentViewModel.remoVeStock();
+                    Toast.makeText(getContext(),"stock is already added",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
         return inflate;
     }
+
+
 
     private void updateDisplayWithData(List<Historical> dailyData) {
 
@@ -150,18 +167,6 @@ public class StockDetails extends Fragment {
         }
     }
 
-
-
-    public void ShareToFriend(View v) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[] {""});
-
-        intent.putExtra(Intent.EXTRA_SUBJECT,"StockDetails");
-        intent.putExtra(Intent.EXTRA_TEXT,"Check this stock out! " + textViewTicker.getText().toString() + " Current price " + closedPrice.getText().toString());
-
-        startActivity(intent);
-    }
 
 
 
