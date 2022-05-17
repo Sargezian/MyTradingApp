@@ -11,6 +11,8 @@ public class Stock {
     private double changesPercentage;
     private String companyName;
 
+    public Stock() {
+    }
 
     public Stock(String ticker, double price, double changesPercentage, String companyName) {
         this.ticker = ticker;
