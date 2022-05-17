@@ -56,5 +56,5 @@ https://youtu.be/EErxpoemJOU
 ![app/Setting.png](app/Setting.png)
 
 ### Video
-[![Watch the video](app/graphStock.png)](https://www.youtube.com/watch?v=sBIkhsBDrGU )
+[![Watch the video](app/graphStock.png)](https://www.youtube.com/watch?v=EErxpoemJOU)
 
