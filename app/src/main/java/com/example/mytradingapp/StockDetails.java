@@ -1,6 +1,7 @@
 package com.example.mytradingapp;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -103,6 +106,14 @@ public class StockDetails extends Fragment {
             }
         });
 
+
+
+        ImageView sendStockDetails = inflate.findViewById(R.id.share);
+
+        sendStockDetails.setOnClickListener(this::ShareToFriend);
+
+
+
         return inflate;
     }
 
@@ -139,6 +150,18 @@ public class StockDetails extends Fragment {
         }
     }
 
+
+
+    public void ShareToFriend(View v) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] {""});
+
+        intent.putExtra(Intent.EXTRA_SUBJECT,"StockDetails");
+        intent.putExtra(Intent.EXTRA_TEXT,"Check this stock out! " + textViewTicker.getText().toString() + " Current price " + closedPrice.getText().toString());
+
+        startActivity(intent);
+    }
 
 
 

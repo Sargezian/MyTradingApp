@@ -61,23 +61,6 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
     private void getGainersStock() {
         df.setRoundingMode(RoundingMode.HALF_UP);
 
-        topGainersViewModel.getGainersStockResponseLiveData().observe(getViewLifecycleOwner(),stocks -> {
-            if (stocks != null && !stocks.isEmpty()){
-                progressBar.setVisibility(View.GONE);
-                List<Stock> stockList = stocks;
-
-                for (Stock stock : stockList) {
-
-                    stock.setChangesPercentage(Double.parseDouble(df.format(stock.getChangesPercentage())));
-                }
-                stockArrayList.clear();
-                stockArrayList.addAll(stockList);
-
-                stockTitleAdapter.notifyDataSetChanged();
-
-            }
-
-        });
 
     }
 
