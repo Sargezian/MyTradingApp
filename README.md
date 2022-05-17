@@ -7,7 +7,7 @@ My motivation behind the creation of this app, is that i have got tired of stock
 The goal of this app is to be as user friendly as possible and have a nice mordern UI design. 
 
 Demonstration of app:
-https://www.youtube.com/watch?v=mx_WdmEgtWo
+https://youtu.be/EErxpoemJOU
 
 # Prioritized requirements
 
