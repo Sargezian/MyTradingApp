@@ -43,7 +43,7 @@ public class TopLosersFragment extends Fragment implements OnListItemClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        inflate = inflater.inflate(R.layout.fragment_europe, container, false);
+        inflate = inflater.inflate(R.layout.fragment_topgainers, container, false);
 
         recyclerView = inflate.findViewById(R.id.rv_list2);
         progressBar = inflate.findViewById(R.id.progress_bar2);

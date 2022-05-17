@@ -8,14 +8,14 @@
     <fragment
         android:id="@+id/usaFragment"
         android:name="com.example.mytradingapp.View.Market.TopActiveFragment"
-        tools:layout="@layout/fragment_usa"
+        tools:layout="@layout/fragment_topactive"
         />
     <fragment
         android:id="@+id/europeFragment"
         android:name="com.example.mytradingapp.View.Market.TopLosersFragment"
-        tools:layout="@layout/fragment_europe" />
+        tools:layout="@layout/fragment_topgainers" />
     <fragment
         android:id="@+id/asiaFragment"
         android:name="com.example.mytradingapp.View.Market.TopGainersFragment"
-        tools:layout="@layout/fragment_asia" />
+        tools:layout="@layout/fragment_toplosers" />
 </navigation>

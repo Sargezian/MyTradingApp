@@ -21,7 +21,6 @@ import com.example.mytradingapp.Shared.Transferobjects.Stock;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +42,7 @@ public class TopActiveFragment extends Fragment implements OnListItemClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        inflate = inflater.inflate(R.layout.fragment_usa, container, false);
+        inflate = inflater.inflate(R.layout.fragment_topactive, container, false);
 
 
         recyclerView = inflate.findViewById(R.id.rv_list);
