@@ -46,6 +46,7 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
     private Bundle bundle = new Bundle();
     private  View view;
     private FirebaseAuth firebaseAuth;
+    private TextView error;
 
 
     @Override
@@ -59,7 +60,7 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
         recyclerView.hasFixedSize();
         firebaseAuth = FirebaseAuth.getInstance();
         stockTitleAdapter = new StockTitleAdapter(stockArrayList,this);
-
+         error = view.findViewById(R.id.tv_s_error);
         recyclerView.setAdapter(stockTitleAdapter);
 
         getGainersStock();
@@ -76,12 +77,11 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
             getActivity().finish();
         } else {
             homeFragmentViewModel.getStock().observe(getViewLifecycleOwner(), stock -> {
-                if (stock != null){
+                if (stock != null && !stock.isEmpty()){
+                    error.setVisibility(View.GONE);
                     List<Stock> stockList = stock;
                     stockArrayList.clear();
                     stockArrayList.addAll(stockList);
-
-
                     stockTitleAdapter.notifyDataSetChanged();
 
                 }

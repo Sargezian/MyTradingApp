@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/stockDetails"
-        android:name="com.example.mytradingapp.StockDetails"
+        android:name="com.example.mytradingapp.View.StockDetails.StockDetails"
         android:label="Apple Inc."
         tools:layout="@layout/fragment_stock_details" >
         <action

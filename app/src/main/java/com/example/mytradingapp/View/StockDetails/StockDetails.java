@@ -1,4 +1,4 @@
-package com.example.mytradingapp;
+package com.example.mytradingapp.View.StockDetails;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -26,11 +26,14 @@ import android.widget.Toolbar;
 import com.example.mytradingapp.API.ServiceGenerator;
 import com.example.mytradingapp.API.StockApi;
 import com.example.mytradingapp.Adapter.StockSparkAdapter;
+import com.example.mytradingapp.R;
 import com.example.mytradingapp.Shared.Transferobjects.Historical;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
 import com.example.mytradingapp.View.Home.HomeFragmentViewModel;
 import com.example.mytradingapp.View.SignUp.SignUpActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.robinhood.spark.SparkView;
 import com.robinhood.spark.animation.SparkAnimator;
@@ -57,6 +60,7 @@ public class StockDetails extends Fragment {
     private TextView closedPrice;
     private CheckBox star;
     private HomeFragmentViewModel homeFragmentViewModel;
+    DatabaseReference databaseReference;
 
 
     @Override
@@ -125,8 +129,8 @@ public class StockDetails extends Fragment {
                 if (star.isChecked()){
                     homeFragmentViewModel.saveStock(new Stock(getArguments().getString("ticker"),getArguments().getDouble("price"),getArguments().getDouble("changesPercentage"), getArguments().getString("companyName")));
                 } else {
-                    homeFragmentViewModel.remoVeStock();
-                    Toast.makeText(getContext(),"stock is already added",Toast.LENGTH_LONG).show();
+                   homeFragmentViewModel.remoVeStock(getArguments().getString("companyName"));
+
                 }
             }
         });

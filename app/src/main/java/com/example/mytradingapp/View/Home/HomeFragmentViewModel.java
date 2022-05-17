@@ -34,8 +34,8 @@ public class HomeFragmentViewModel extends AndroidViewModel {
         stockRepository.saveStock(stock);
     }
 
-    public void remoVeStock(){
-        stockRepository.deleteStock();
+    public void remoVeStock(String stock){
+        stockRepository.deleteStock(stock);
     }
 
     public LiveData<List<Stock>> getStock() {

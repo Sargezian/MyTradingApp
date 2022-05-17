@@ -30,6 +30,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/white"
 
 
         >
@@ -67,7 +68,23 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp">
+                android:layout_marginTop="14dp"
+                android:textColorHint="@color/black"
+                app:prefixTextColor="@color/black"
+                app:placeholderTextColor="@color/black"
+                app:counterOverflowTextColor="@color/black"
+                app:counterTextColor="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeErrorColor="@color/black"
+                app:errorTextColor="@color/black"
+                app:helperTextTextColor="@color/black"
+                app:hintTextColor="@color/black"
+                app:suffixTextColor="@color/black"
+
+
+
+
+                >
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -78,6 +95,7 @@
                     android:inputType="textCapWords"
                     android:textColor="#363A43"
                     android:textColorHint="#7A8089"
+
 
                     />
 
@@ -94,7 +112,19 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp">
+                android:layout_marginTop="14dp"
+                android:textColorHint="@color/black"
+                app:prefixTextColor="@color/black"
+                app:placeholderTextColor="@color/black"
+                app:counterOverflowTextColor="@color/black"
+                app:counterTextColor="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeErrorColor="@color/black"
+                app:errorTextColor="@color/black"
+                app:helperTextTextColor="@color/black"
+                app:hintTextColor="@color/black"
+                app:suffixTextColor="@color/black"
+                >
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -115,7 +145,19 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp">
+                android:layout_marginTop="14dp"
+                android:textColorHint="@color/black"
+                app:prefixTextColor="@color/black"
+                app:placeholderTextColor="@color/black"
+                app:counterOverflowTextColor="@color/black"
+                app:counterTextColor="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeErrorColor="@color/black"
+                app:errorTextColor="@color/black"
+                app:helperTextTextColor="@color/black"
+                app:hintTextColor="@color/black"
+                app:suffixTextColor="@color/black"
+                >
 
 
                 <androidx.appcompat.widget.AppCompatEditText

@@ -2,6 +2,7 @@ package com.example.mytradingapp.Repository;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -10,11 +11,17 @@ import com.example.mytradingapp.API.StockApi;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
 import com.example.mytradingapp.Shared.Transferobjects.StockSearch;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -72,8 +79,30 @@ public class StockRepository {
 
     }
 
-    public void deleteStock(){
-        databaseReference.push().removeValue();
+    public void deleteStock(String stock){
+
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                   String key  = postSnapshot.getKey();
+                    databaseReference.child(key).orderByValue().equalTo(stock).getRef().removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                            Log.e("delte",key);
+                        }
+                    });
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
@@ -200,33 +229,6 @@ public class StockRepository {
     }
 
 
-
-    public LiveData<List<StockGraph>>getStockGraph(String name){
-
-//        StockApi stockApi = ServiceGenerator.getStockApi();
-//        Call<List<StockGraph>> call = stockApi.getGraph(name);
-//
-//        call.enqueue(new Callback<List<StockGraph>>() {
-//            @Override
-//            public void onResponse(Call<List<StockGraph>> call, Response<List<StockGraph>> response) {
-//                   if (response.isSuccessful()){
-//
-//
-//                       List<StockGraph> body = response.body();
-//                       Collections.reverse(body);
-//                       stockGraphList.setValue(body);
-//                   }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<StockGraph>> call, Throwable t) {
-//                Log.e("Retrofit", "Something went wrong getting Stocks graphs :(" + t);
-//            }
-//        });
-
-        return stockGraphList;
-
-    }
 
 
 }
