@@ -1,10 +1,7 @@
 package com.example.mytradingapp.Repository;
 
-import android.os.Build;
 import android.util.Log;
-import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -14,13 +11,10 @@ import com.example.mytradingapp.Shared.Transferobjects.Stock;
 import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
 import com.example.mytradingapp.Shared.Transferobjects.StockSearch;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -30,6 +24,7 @@ import retrofit2.internal.EverythingIsNonNull;
 
 public class StockRepository {
 
+    private FirebaseAuth firebaseAuth;
     private static StockRepository instance;
     private final MutableLiveData<List<Stock>> stockList;
     private final MutableLiveData<List<Stock>> stockList2;
@@ -48,6 +43,7 @@ public class StockRepository {
         stockList3 = new MutableLiveData<>();
         stockGraphList = new MutableLiveData<>();
         searchedStock = new MutableLiveData<>();
+        firebaseAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -61,10 +57,14 @@ public class StockRepository {
     }
 
     public void init (){
+        FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        databaseReference =  FirebaseDatabase.getInstance("https://mytradingapp-d2411-default-rtdb.europe-west1.firebasedatabase.app/").getReference("stock")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        stockLiveData = new StockLiveData(databaseReference);
+        if (user != null){
+            databaseReference =  FirebaseDatabase.getInstance("https://mytradingapp-d2411-default-rtdb.europe-west1.firebasedatabase.app/").getReference("stock")
+                    .child(user.getUid());
+            stockLiveData = new StockLiveData(databaseReference);
+        }
+
     }
 
     public void saveStock(Stock stock){

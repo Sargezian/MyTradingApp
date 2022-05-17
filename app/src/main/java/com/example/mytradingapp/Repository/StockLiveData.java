@@ -20,6 +20,7 @@ public class StockLiveData extends LiveData<List<Stock>> {
           List<Stock> stockList = new ArrayList<>();
             for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                 stockList.add(postSnapshot.getValue(Stock.class));
+
             }
 
             setValue(stockList);
