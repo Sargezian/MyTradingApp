@@ -30,11 +30,26 @@ The goal of this app is to be as user friendly as possible and have a nice morde
 - [x] As a user, i want to be able to signup and login with a google account
 
 
-### MyTradingApp:
+### Login:
+![app/Login.png](app/Login.png)
+
+### MarketWatch
 ![app/stockTopActive.png](app/stockTopActive.png)
 
+### Graph
 ![app/graphStock.png](app/graphStock.png)
 
+### StockNews
 ![app/stockNews.png](app/stockNews.png)
 
-![app/stockSearch.png](app/stockSearch.png)
+### Search
+![app/Search.png](app/Search.png)
+
+### Watchlist
+![app/Watchlist.png](app/Watchlist.png)
+
+### Setting
+![app/Setting.png](app/Setting.png)
+
+
+
