@@ -53,5 +53,5 @@ The goal of this app is to be as user friendly as possible and have a nice morde
 ![app/Setting.png](app/Setting.png)
 
 ### Video
-[![Watch the video](app/stockTopActive.png)](https://www.youtube.com/watch?v=sBIkhsBDrGU )
+[![Watch the video](app/graphStock.png)](https://www.youtube.com/watch?v=sBIkhsBDrGU )
 
