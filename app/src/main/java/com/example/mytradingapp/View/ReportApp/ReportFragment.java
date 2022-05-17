@@ -30,13 +30,13 @@ public class ReportFragment extends Fragment {
 
         Button sendEmailButton = view.findViewById(R.id.button_send_mail);
 
-        sendEmailButton.setOnClickListener(this::emailToMom);
+        sendEmailButton.setOnClickListener(this::emailToCreators);
 
         return view;
     }
 
 
-    public void emailToMom(View v) {
+    public void emailToCreators(View v) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"lennart_1997@hotmail.com"});
