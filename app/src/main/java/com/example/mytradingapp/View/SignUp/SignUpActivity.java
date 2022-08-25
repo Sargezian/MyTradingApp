@@ -3,6 +3,7 @@ package com.example.mytradingapp.View.SignUp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -29,13 +31,16 @@ public class SignUpActivity extends AppCompatActivity {
     private AppCompatEditText et_Password;
     private Button signup;
     private Button back;
+    private SignUpActivityViewModel signUpActivityViewModel;
+    private FirebaseUser firebaseUser;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
+        signUpActivityViewModel = new ViewModelProvider(this).get(SignUpActivityViewModel.class);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseAuth = FirebaseAuth.getInstance();
         etName = findViewById(R.id.et_full_name_sign_up);
         et_Email = findViewById(R.id.et_email_sign_up);
@@ -80,6 +85,8 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             User user = new User(name, email);
+                            //User user1 = new User(firebaseUser.getUid(),name,email);
+                          //  signUpActivityViewModel.addSUser(user1);
                             FirebaseDatabase.getInstance("https://mytradingapp-d2411-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

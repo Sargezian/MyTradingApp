@@ -1,19 +1,23 @@
 package com.example.mytradingapp.View.Search;
 
+import android.app.Application;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.mytradingapp.Repository.StockRepository;
 import com.example.mytradingapp.Shared.Transferobjects.StockSearch;
 
-public class SearchViewModel extends ViewModel {
+public class SearchViewModel extends AndroidViewModel {
 
     StockRepository repository;
 
-    public SearchViewModel() {
-        repository = StockRepository.getInstance();
+    public SearchViewModel(@NonNull Application application) {
+        super(application);
+        repository = StockRepository.getInstance(application);
     }
 
     LiveData<StockSearch> getSearchedStock() {

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mytradingapp.R;
+import com.example.mytradingapp.Shared.StockUser;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 
 import java.util.ArrayList;
@@ -16,10 +17,10 @@ import java.util.ArrayList;
 
 public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements OnListItemClickListener {
 
-    private ArrayList<Stock> stocks;
+    private ArrayList<StockUser> stocks;
     OnListItemClickListener listener;
 
-    public StockTitleAdapter(ArrayList<Stock> stocks, OnListItemClickListener listener) {
+    public StockTitleAdapter(ArrayList<StockUser> stocks, OnListItemClickListener listener) {
         this.stocks = stocks;
         this.listener = listener;
 
@@ -44,8 +45,8 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-        Stock stock = (Stock) stocks.get(position);
-            ((StockViewHolder)holder).setStock(stock);
+        StockUser stock = (StockUser) stocks.get(position);
+            ((StockViewHolder)holder).setStock(stock,position);
 
 
 
@@ -88,12 +89,12 @@ public class StockTitleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
 
 
-        public void setStock(Stock stock){
+        public void setStock(StockUser stock, int position){
 
-            ticker.setText(stock.getTicker());
-            price.setText(Double.toString(stock.getPrice()));
-            changesPercentage.setText(Double.toString(stock.getChangesPercentage()) + "%");
-            companyName.setText(stock.getCompanyName());
+            ticker.setText(stock.userStockList.get(position).getTicker());
+            price.setText(Double.toString(stock.userStockList.get(position).getPrice()));
+            changesPercentage.setText(Double.toString(stock.userStockList.get(position).getChangesPercentage()) + "%");
+            companyName.setText(stock.userStockList.get(position).getCompanyName());
             getChangesPercentage();
 
         }

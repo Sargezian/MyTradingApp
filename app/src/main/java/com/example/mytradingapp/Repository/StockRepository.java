@@ -1,5 +1,6 @@
 package com.example.mytradingapp.Repository;
 
+import android.app.Application;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -8,6 +9,9 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.mytradingapp.API.ServiceGenerator;
 import com.example.mytradingapp.API.StockApi;
+import com.example.mytradingapp.DAO.StockDao;
+import com.example.mytradingapp.DAO.StockUserDatabase;
+import com.example.mytradingapp.Shared.StockUser;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 import com.example.mytradingapp.Shared.Transferobjects.StockGraph;
 import com.example.mytradingapp.Shared.Transferobjects.StockSearch;
@@ -23,6 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,12 +45,18 @@ public class StockRepository {
     private final MutableLiveData<List<StockGraph>> stockGraphList;
 
     private final MutableLiveData<StockSearch> searchedStock;
+    private final ExecutorService executorService;
+    private final StockDao stockDao;
+
 
     private DatabaseReference databaseReference;
     private StockLiveData stockLiveData;
 
 
-    public StockRepository() {
+    public StockRepository(Application application) {
+        StockUserDatabase database = StockUserDatabase.getInstance(application);
+        stockDao = database.stockDao();
+        executorService = Executors.newFixedThreadPool(2);
         stockList = new MutableLiveData<>();
         stockList2 = new MutableLiveData<>();
         stockList3 = new MutableLiveData<>();
@@ -54,10 +66,10 @@ public class StockRepository {
 
     }
 
-    public static synchronized StockRepository getInstance() {
+    public static synchronized StockRepository getInstance(Application application) {
 
         if (instance == null){
-            instance = new StockRepository();
+            instance = new StockRepository(application);
         }
 
         return instance;
@@ -228,7 +240,13 @@ public class StockRepository {
 
     }
 
+    public LiveData<List<StockUser>> getStockByUserId(String userId){
+        return stockDao.getStockByUserId(userId);
+    }
 
 
+    public void insert(Stock stock) {
+        executorService.execute(() -> stockDao.addStock(stock));
+    }
 
 }

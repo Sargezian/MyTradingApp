@@ -13,12 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.lifecycle.ViewModelProvider;
 
 
 import com.example.mytradingapp.R;
 import com.example.mytradingapp.Shared.Entity.User;
 import com.example.mytradingapp.View.Main.MainActivity;
 import com.example.mytradingapp.View.SignUp.SignUpActivity;
+import com.example.mytradingapp.View.SignUp.SignUpActivityViewModel;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -48,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn_login;
     private AppCompatEditText et_email;
     private AppCompatEditText et_password;
+    private SignUpActivityViewModel signUpActivityViewModel;
 
 
     @Override
@@ -59,13 +62,14 @@ public class LoginActivity extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_login);
         et_email = findViewById(R.id.et_username_sign_in);
         et_password = findViewById(R.id.et_password_sign_in);
-
+        signUpActivityViewModel = new ViewModelProvider(this).get(SignUpActivityViewModel.class);
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail().build();
         signInClient = GoogleSignIn.getClient(this, googleSignInOptions);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
         signInButton.setOnClickListener(this::signInWithGoogle);
 
         signUp.setOnClickListener(this::signUp);
@@ -117,6 +121,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 User user = new User(authResult.getUser().getDisplayName(), authResult.getUser().getEmail());
+                User user1 = new User(authResult.getUser().getUid(),authResult.getUser().getDisplayName(), authResult.getUser().getEmail());
+                signUpActivityViewModel.addSUser(user1);
                 FirebaseDatabase.getInstance("https://mytradingapp-d2411-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                         .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -173,6 +179,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if (user.isEmailVerified()){
+                        signUpActivityViewModel.addSUser(new User(user.getUid(),user.getEmail(), user.getEmail()));
+
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
 

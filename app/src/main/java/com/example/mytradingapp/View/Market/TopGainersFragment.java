@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.mytradingapp.Adapter.OnListItemClickListener;
 import com.example.mytradingapp.R;
 import com.example.mytradingapp.Adapter.StockTitleAdapter;
+import com.example.mytradingapp.Shared.StockUser;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 
 import java.math.RoundingMode;
@@ -29,7 +30,7 @@ public class TopGainersFragment extends Fragment implements OnListItemClickListe
 
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
-    private ArrayList<Stock> stockArrayList = new ArrayList<>();
+    private ArrayList<StockUser> stockArrayList = new ArrayList<>();
     private StockTitleAdapter stockTitleAdapter;
     private TopGainersViewModel topGainersViewModel;
     private final DecimalFormat df = new DecimalFormat("0.00");
@@ -73,7 +74,7 @@ public class TopGainersFragment extends Fragment implements OnListItemClickListe
                     stock.setChangesPercentage(Double.parseDouble(df.format(stock.getChangesPercentage())));
                 }
                  stockArrayList.clear();
-                stockArrayList.addAll(stockList);
+               // stockArrayList.addAll(stockList);
 
                 stockTitleAdapter.notifyDataSetChanged();
 

@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.mytradingapp.Adapter.OnListItemClickListener;
 import com.example.mytradingapp.Adapter.StockTitleAdapter;
 import com.example.mytradingapp.R;
+import com.example.mytradingapp.Shared.StockUser;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 import com.example.mytradingapp.View.Login.LoginActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -38,7 +39,7 @@ import java.util.List;
 public class HomeFragment extends Fragment implements OnListItemClickListener {
 
 
-    private ArrayList<Stock> stockArrayList = new ArrayList<>();
+    private ArrayList<StockUser> stockArrayList = new ArrayList<>();
     private StockTitleAdapter stockTitleAdapter;
     private RecyclerView recyclerView;
     private final DecimalFormat df = new DecimalFormat("0.00");
@@ -47,6 +48,7 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
     private  View view;
     private FirebaseAuth firebaseAuth;
     private TextView error;
+
 
 
     @Override
@@ -76,10 +78,10 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
             startActivity(new Intent(getActivity(), LoginActivity.class));
             getActivity().finish();
         } else {
-            homeFragmentViewModel.getStock().observe(getViewLifecycleOwner(), stock -> {
+            homeFragmentViewModel.getStockUserbyId(user.getUid()).observe(getViewLifecycleOwner(), stock -> {
                 if (stock != null && !stock.isEmpty()){
                     error.setVisibility(View.GONE);
-                    List<Stock> stockList = stock;
+                    List<StockUser> stockList = stock;
                     stockArrayList.clear();
                     stockArrayList.addAll(stockList);
                     stockTitleAdapter.notifyDataSetChanged();
@@ -93,20 +95,23 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
 
     }
 
-
-
-
     @Override
     public void onClick(int position) {
-        Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
 
-
-        bundle.putString("ticker", stockArrayList.get(position).getTicker());
-        bundle.putDouble("price",stockArrayList.get(position).getPrice());
-        bundle.putDouble("changesPercentage",stockArrayList.get(position).getChangesPercentage());
-        bundle.putString("companyName",stockArrayList.get(position).getCompanyName());
-
-
-        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_stockDetails,bundle);
     }
+
+
+//    @Override
+//    public void onClick(int position) {
+//        Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
+//
+//
+//        bundle.putString("ticker", stockArrayList.get(position).getTicker());
+//        bundle.putDouble("price",stockArrayList.get(position).getPrice());
+//        bundle.putDouble("changesPercentage",stockArrayList.get(position).getChangesPercentage());
+//        bundle.putString("companyName",stockArrayList.get(position).getCompanyName());
+//
+//
+//        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_stockDetails,bundle);
+//    }
 }
