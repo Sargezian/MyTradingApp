@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.example.mytradingapp.Adapter.OnListItemClickListener;
 import com.example.mytradingapp.R;
 import com.example.mytradingapp.Adapter.StockTitleAdapter;
-import com.example.mytradingapp.Shared.StockUser;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 
 import java.math.RoundingMode;
@@ -32,7 +31,7 @@ public class TopActiveFragment extends Fragment implements OnListItemClickListen
 
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
-    private ArrayList<StockUser> stockArrayList = new ArrayList<>();
+    private ArrayList<Stock> stockArrayList = new ArrayList<>();
     private TopActiveViewModel topactiveViewmodel;
     private StockTitleAdapter stockTitleAdapter;
     private final DecimalFormat df = new DecimalFormat("0.00");

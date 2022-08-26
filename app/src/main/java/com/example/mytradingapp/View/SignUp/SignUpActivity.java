@@ -20,7 +20,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -87,18 +86,7 @@ public class SignUpActivity extends AppCompatActivity {
                             User user = new User(name, email);
                             //User user1 = new User(firebaseUser.getUid(),name,email);
                           //  signUpActivityViewModel.addSUser(user1);
-                            FirebaseDatabase.getInstance("https://mytradingapp-d2411-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
-                                        Toast.makeText(SignUpActivity.this,"user has been registered successfully",Toast.LENGTH_LONG).show();
-                                    } else {
-                                        Toast.makeText(SignUpActivity.this,"Failed to register user",Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
+
                         } else {
                             Toast.makeText(SignUpActivity.this,"Failed to register user",Toast.LENGTH_LONG).show();
                         }

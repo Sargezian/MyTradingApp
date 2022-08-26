@@ -1,6 +1,7 @@
 package com.example.mytradingapp.View.Home;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -34,12 +35,13 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class HomeFragment extends Fragment implements OnListItemClickListener {
 
 
-    private ArrayList<StockUser> stockArrayList = new ArrayList<>();
+    private ArrayList<Stock> stockArrayList = new ArrayList<>();
     private StockTitleAdapter stockTitleAdapter;
     private RecyclerView recyclerView;
     private final DecimalFormat df = new DecimalFormat("0.00");
@@ -50,13 +52,11 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
     private TextView error;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
          view = inflater.inflate(R.layout.fragment_home, container, false);
         homeFragmentViewModel = new ViewModelProvider(this).get(HomeFragmentViewModel.class);
-        homeFragmentViewModel.init();
         recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.hasFixedSize();
@@ -78,15 +78,30 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
             startActivity(new Intent(getActivity(), LoginActivity.class));
             getActivity().finish();
         } else {
-            homeFragmentViewModel.getStockUserbyId(user.getUid()).observe(getViewLifecycleOwner(), stock -> {
+            homeFragmentViewModel.getStockByUserId(user.getUid()).observe(getViewLifecycleOwner(), stock -> {
                 if (stock != null && !stock.isEmpty()){
                     error.setVisibility(View.GONE);
                     List<StockUser> stockList = stock;
-                    stockArrayList.clear();
-                    stockArrayList.addAll(stockList);
-                    stockTitleAdapter.notifyDataSetChanged();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        List<List<Stock>> listList = stockList.stream()
+                                .map(stockUser -> stockUser.userStockList)
+                                .collect(Collectors.toList());
+                        for (List<Stock> stocks : listList) {
 
-                }
+
+                                stockArrayList.clear();
+                                stockArrayList.addAll(stocks);
+                                stockTitleAdapter.notifyDataSetChanged();
+
+                        }
+
+                    }
+
+
+
+                    }
+
+
 
             });
 
@@ -95,23 +110,20 @@ public class HomeFragment extends Fragment implements OnListItemClickListener {
 
     }
 
+
+
+
     @Override
     public void onClick(int position) {
+        Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
 
+
+        bundle.putString("ticker", stockArrayList.get(position).getTicker());
+        bundle.putDouble("price",stockArrayList.get(position).getPrice());
+        bundle.putDouble("changesPercentage",stockArrayList.get(position).getChangesPercentage());
+        bundle.putString("companyName",stockArrayList.get(position).getCompanyName());
+
+
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_stockDetails,bundle);
     }
-
-
-//    @Override
-//    public void onClick(int position) {
-//        Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_SHORT).show();
-//
-//
-//        bundle.putString("ticker", stockArrayList.get(position).getTicker());
-//        bundle.putDouble("price",stockArrayList.get(position).getPrice());
-//        bundle.putDouble("changesPercentage",stockArrayList.get(position).getChangesPercentage());
-//        bundle.putString("companyName",stockArrayList.get(position).getCompanyName());
-//
-//
-//        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_stockDetails,bundle);
-//    }
 }

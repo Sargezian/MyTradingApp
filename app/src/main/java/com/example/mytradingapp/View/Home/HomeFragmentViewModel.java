@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModel;
 import com.example.mytradingapp.Repository.StockRepository;
 import com.example.mytradingapp.Shared.StockUser;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
-import com.google.firebase.database.DatabaseReference;
 
 import java.util.List;
 
@@ -26,21 +25,11 @@ public class HomeFragmentViewModel extends AndroidViewModel {
 
     }
 
-    public void init(){
-        stockRepository.init();
-    }
 
 
-    public void saveStock(Stock stock) {
-        stockRepository.saveStock(stock);
-    }
 
-    public void remoVeStock(String stock){
-        stockRepository.deleteStock(stock);
-    }
-
-    public LiveData<List<StockUser>> getStockUserbyId(String id) {
-        return stockRepository.getStockByUserId(id);
+    public LiveData<List<StockUser>> getStockByUserId(String userId){
+        return stockRepository.getStockByUserId(userId);
     }
 
 

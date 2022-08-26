@@ -34,8 +34,7 @@ import com.example.mytradingapp.View.Home.HomeFragmentViewModel;
 import com.example.mytradingapp.View.SignUp.SignUpActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 import com.robinhood.spark.SparkView;
 import com.robinhood.spark.animation.SparkAnimator;
 
@@ -62,7 +61,6 @@ public class StockDetails extends Fragment {
     private CheckBox star;
     private HomeFragmentViewModel homeFragmentViewModel;
     private StockDetailsViewModel stockDetailsViewModel;
-    DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
 
@@ -138,7 +136,7 @@ public class StockDetails extends Fragment {
 
                    // homeFragmentViewModel.saveStock(new Stock(getArguments().getString("ticker"),getArguments().getDouble("price"),getArguments().getDouble("changesPercentage"), getArguments().getString("companyName")));
                 } else {
-                   homeFragmentViewModel.remoVeStock(getArguments().getString("companyName"));
+                 //  homeFragmentViewModel.remoVeStock(getArguments().getString("companyName"));
 
                 }
             }

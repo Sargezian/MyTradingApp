@@ -36,7 +36,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -120,21 +119,8 @@ public class LoginActivity extends AppCompatActivity {
         firebaseAuth.signInWithCredential(credential).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-                User user = new User(authResult.getUser().getDisplayName(), authResult.getUser().getEmail());
                 User user1 = new User(authResult.getUser().getUid(),authResult.getUser().getDisplayName(), authResult.getUser().getEmail());
                 signUpActivityViewModel.addSUser(user1);
-                FirebaseDatabase.getInstance("https://mytradingapp-d2411-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Users")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this,"User has been successfully logged in ",Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(LoginActivity.this,"Failed to log in ",Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
 

@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.example.mytradingapp.Shared.Entity.User;
 import com.example.mytradingapp.Shared.Transferobjects.Stock;
 
-@Database(entities = {User.class, Stock.class}, version = 7)
+@Database(entities = {User.class, Stock.class}, version = 12)
 public abstract class StockUserDatabase extends RoomDatabase {
 
     private static StockUserDatabase instance;

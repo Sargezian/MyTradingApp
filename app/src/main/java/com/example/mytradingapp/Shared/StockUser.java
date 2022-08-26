@@ -16,7 +16,7 @@ public class StockUser {
 
     @Relation(
             parentColumn = "id",
-            entityColumn = "ticker"
+            entityColumn = "id"
     )
     public List<Stock> userStockList;
 
@@ -24,5 +24,29 @@ public class StockUser {
     public StockUser(User user, List<Stock> userStockList) {
         this.user = user;
         this.userStockList = userStockList;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Stock> getUserStockList() {
+        return userStockList;
+    }
+
+    public void setUserStockList(List<Stock> userStockList) {
+        this.userStockList = userStockList;
+    }
+
+    @Override
+    public String toString() {
+        return "StockUser{" +
+                "user=" + user +
+                ", userStockList=" + userStockList +
+                '}';
     }
 }
